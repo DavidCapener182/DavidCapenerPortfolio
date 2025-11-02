@@ -1,17 +1,19 @@
+'use client'
+
 import ContactForm from '@/components/ContactForm'
 import Button from '@/components/Button'
 import { Card, CardContent } from '@/components/ui/card'
-import type { Metadata } from 'next'
-
-export const metadata: Metadata = {
-  title: 'Contact | Get in Touch | David Capener',
-  description: 'Contact David Capener for security consultancy, event planning, and leadership opportunities. Available for major UK venues and festivals.',
-  keywords: 'Contact Security Manager, Event Security Consulting, Crowd Safety Contact, Security Professional UK',
-}
+import { motion } from 'framer-motion'
+import { fadeIn } from '@/lib/animationVariants'
 
 export default function Contact() {
   return (
-    <div className="pt-16">
+    <motion.div 
+      className="pt-16"
+      initial="hidden"
+      animate="visible"
+      variants={fadeIn.minimal}
+    >
       {/* Header */}
       <section className="py-16 bg-lightgrey">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -100,7 +102,7 @@ export default function Contact() {
           </div>
         </div>
       </section>
-    </div>
+    </motion.div>
   )
 }
 

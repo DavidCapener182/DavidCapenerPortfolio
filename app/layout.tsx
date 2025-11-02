@@ -3,6 +3,7 @@ import { Montserrat, Open_Sans } from 'next/font/google'
 import '../styles/globals.css'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import ScrollProgress from '@/components/ScrollProgress'
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -36,6 +37,7 @@ export default function RootLayout({
     <html lang="en" className={`${montserrat.variable} ${openSans.variable}`}>
       <body>
         <Navigation />
+        <ScrollProgress />
         <main>{children}</main>
         <Footer />
       </body>

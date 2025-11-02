@@ -15,6 +15,16 @@ export default function Navigation() {
     { href: '/contact', label: 'Contact' },
   ]
 
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('#')) {
+      e.preventDefault()
+      const element = document.querySelector(href)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }
+  }
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-800 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,6 +40,7 @@ export default function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={(e) => handleSmoothScroll(e, link.href)}
                 className="text-gray-300 hover:text-white transition-colors duration-200 font-medium uppercase text-sm tracking-wider"
               >
                 {link.label}
@@ -61,21 +72,24 @@ export default function Navigation() {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden pb-4 bg-gray-800">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="block py-2 text-gray-300 hover:text-white transition-colors duration-200 uppercase text-sm tracking-wider"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-        )}
+          {/* Mobile Navigation */}
+          {isOpen && (
+            <div className="md:hidden pb-4 bg-gray-800">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => {
+                    handleSmoothScroll(e, link.href)
+                    setIsOpen(false)
+                  }}
+                  className="block py-2 text-gray-300 hover:text-white transition-colors duration-200 uppercase text-sm tracking-wider"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          )}
       </div>
     </nav>
   )

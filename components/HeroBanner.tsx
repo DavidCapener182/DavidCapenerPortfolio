@@ -1,7 +1,8 @@
 'use client'
 
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
 
 interface HeroBannerProps {
   title: string
@@ -24,27 +25,40 @@ export default function HeroBanner({
   ctaHref,
   overlay = true,
 }: HeroBannerProps) {
+  const ref = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end start']
+  })
+  const parallaxY = useTransform(scrollYProgress, [0, 1], ['0%', '35%'])
+
   return (
-    <div className="relative w-full h-[600px] md:h-[700px] overflow-hidden">
+    <div ref={ref} className="relative w-full h-[600px] md:h-[700px] overflow-hidden">
       {/* Background Image or Video */}
       {videoSrc ? (
-        <video
+        <motion.video
           autoPlay
           loop
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
+          style={{ y: parallaxY, willChange: 'transform' }}
         >
           <source src={videoSrc} type="video/mp4" />
-        </video>
+        </motion.video>
       ) : imageSrc ? (
-        <Image
-          src={imageSrc}
-          alt={title}
-          fill
-          className="object-cover"
-          priority
-        />
+        <motion.div
+          className="absolute inset-0"
+          style={{ y: parallaxY, willChange: 'transform' }}
+        >
+          <Image
+            src={imageSrc}
+            alt={title}
+            fill
+            className="object-cover"
+            priority
+          />
+        </motion.div>
       ) : (
         <div className="absolute inset-0 bg-gradient-to-br from-navy via-blue-900 to-gray-900">
           {/* Animated background pattern */}
@@ -67,18 +81,18 @@ export default function HeroBanner({
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8">
         <motion.h1 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: 30, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.8, ease: [0.6, -0.05, 0.01, 0.99] }}
           className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-white mb-4"
         >
           {title}
         </motion.h1>
         {subtitle && (
           <motion.h2 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.6, -0.05, 0.01, 0.99] }}
             className="font-heading font-semibold text-2xl md:text-3xl text-white mb-6"
           >
             {subtitle}
@@ -88,7 +102,7 @@ export default function HeroBanner({
           <motion.p 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: [0.6, -0.05, 0.01, 0.99] }}
             className="text-lg md:text-xl text-white max-w-3xl mb-8"
           >
             {description}

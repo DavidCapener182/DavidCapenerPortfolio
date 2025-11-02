@@ -1,14 +1,11 @@
+'use client'
+
 import HeroBanner from '@/components/HeroBanner'
 import CaseStudy from '@/components/CaseStudy'
 import Button from '@/components/Button'
 import { Card, CardContent } from '@/components/ui/card'
-import type { Metadata } from 'next'
-
-export const metadata: Metadata = {
-  title: 'Portfolio & Case Studies | David Capener Security',
-  description: 'Explore case studies from Eurovision 2023, Creamfields Festival, Rebellion Festival, and AI-driven event management platform development.',
-  keywords: 'Security Case Studies, Event Security Projects, Eurovision Security, Festival Safety Management, AI Security Platform',
-}
+import { motion } from 'framer-motion'
+import { fadeUp, staggerContainer, zoomIn } from '@/lib/animationVariants'
 
 export default function Portfolio() {
   return (
@@ -91,54 +88,90 @@ export default function Portfolio() {
       {/* Gallery Section */}
       <section className="py-16 bg-lightgrey">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading font-bold text-4xl text-navy text-center mb-12">
+          <motion.h2 
+            className="font-heading font-bold text-4xl text-navy text-center mb-12"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeUp.moderate}
+          >
             Gallery
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          </motion.h2>
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            variants={staggerContainer.moderate}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
             {/* Placeholder gallery images */}
-            <Card className="overflow-hidden shadow-lg">
-              <div className="relative h-64 bg-gray-300">
-                <img
-                  src="/images/gallery-1.jpg"
-                  alt="Event gallery"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <CardContent className="p-4">
-                <p className="text-sm text-gray-600">Major Event Operations</p>
-              </CardContent>
-            </Card>
-            <Card className="overflow-hidden shadow-lg">
-              <div className="relative h-64 bg-gray-300">
-                <img
-                  src="/images/gallery-2.jpg"
-                  alt="Event gallery"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <CardContent className="p-4">
-                <p className="text-sm text-gray-600">Team Leadership</p>
-              </CardContent>
-            </Card>
-            <Card className="overflow-hidden shadow-lg">
-              <div className="relative h-64 bg-gray-300">
-                <img
-                  src="/images/gallery-3.jpg"
-                  alt="Event gallery"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <CardContent className="p-4">
-                <p className="text-sm text-gray-600">Control Room Operations</p>
-              </CardContent>
-            </Card>
-          </div>
+            <motion.div variants={zoomIn.moderate}>
+              <Card className="overflow-hidden shadow-lg">
+                <motion.div 
+                  className="relative h-64 bg-gray-300 overflow-hidden"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <img
+                    src="/images/gallery-1.jpg"
+                    alt="Event gallery"
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
+                <CardContent className="p-4">
+                  <p className="text-sm text-gray-600">Major Event Operations</p>
+                </CardContent>
+              </Card>
+            </motion.div>
+            <motion.div variants={zoomIn.moderate}>
+              <Card className="overflow-hidden shadow-lg">
+                <motion.div 
+                  className="relative h-64 bg-gray-300 overflow-hidden"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <img
+                    src="/images/gallery-2.jpg"
+                    alt="Event gallery"
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
+                <CardContent className="p-4">
+                  <p className="text-sm text-gray-600">Team Leadership</p>
+                </CardContent>
+              </Card>
+            </motion.div>
+            <motion.div variants={zoomIn.moderate}>
+              <Card className="overflow-hidden shadow-lg">
+                <motion.div 
+                  className="relative h-64 bg-gray-300 overflow-hidden"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <img
+                    src="/images/gallery-3.jpg"
+                    alt="Event gallery"
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
+                <CardContent className="p-4">
+                  <p className="text-sm text-gray-600">Control Room Operations</p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Closing Statement */}
       <section className="py-16 bg-navy text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <motion.div 
+          className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeUp.moderate}
+        >
           <h2 className="font-heading font-bold text-3xl mb-6">
             Commitment to Excellence
           </h2>
@@ -156,7 +189,7 @@ export default function Portfolio() {
               Contact Me
             </Button>
           </div>
-        </div>
+        </motion.div>
       </section>
     </div>
   )

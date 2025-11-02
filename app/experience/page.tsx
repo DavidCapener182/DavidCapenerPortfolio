@@ -1,13 +1,10 @@
+'use client'
+
 import Button from '@/components/Button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import type { Metadata } from 'next'
-
-export const metadata: Metadata = {
-  title: 'Professional Experience & Certifications | David Capener',
-  description: 'View career timeline, qualifications, and professional experience spanning Compact Security, H&A Protection Services, and major UK event venues.',
-  keywords: 'Security Career, Crowd Safety Qualifications, MIMMS Certification, Level 5 Crowd Safety, Security Experience',
-}
+import { motion } from 'framer-motion'
+import { fadeUp, staggerContainer } from '@/lib/animationVariants'
 
 export default function Experience() {
   return (
@@ -15,12 +12,19 @@ export default function Experience() {
       {/* Header */}
       <section className="py-16 bg-lightgrey">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-heading font-bold text-4xl md:text-5xl text-navy mb-4">
-            Professional Experience
-          </h1>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            Over a decade of leadership across the UK's most prestigious events, delivering operational excellence, safety compliance, and team performance in demanding live environments.
-          </p>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeUp.light}
+          >
+            <h1 className="font-heading font-bold text-4xl md:text-5xl text-navy mb-4">
+              Professional Experience
+            </h1>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+              Over a decade of leadership across the UK's most prestigious events, delivering operational excellence, safety compliance, and team performance in demanding live environments.
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -166,10 +170,22 @@ export default function Experience() {
       {/* Certifications */}
       <section className="py-16 bg-lightgrey">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading font-bold text-4xl text-navy text-center mb-12">
+          <motion.h2 
+            className="font-heading font-bold text-4xl text-navy text-center mb-12"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeUp.light}
+          >
             Certifications & Qualifications
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          </motion.h2>
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            variants={staggerContainer.light}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
             {[
               'Level 5 Crowd Safety Management',
               'Level 4 Crowd Safety Officer',
@@ -178,18 +194,19 @@ export default function Experience() {
               'NVQ Level 2 & 3 Spectator Safety',
               'SIA Licensed Door Supervisor',
             ].map((cert, index) => (
-              <Card
-                key={index}
-                className="border-l-4 border-l-red shadow-md hover:shadow-lg transition-shadow"
-              >
-                <CardContent className="p-6">
-                  <h3 className="font-heading font-semibold text-xl text-navy">
-                    {cert}
-                  </h3>
-                </CardContent>
-              </Card>
+              <motion.div key={index} variants={fadeUp.light}>
+                <Card
+                  className="border-l-4 border-l-red shadow-md hover:shadow-lg transition-shadow"
+                >
+                  <CardContent className="p-6">
+                    <h3 className="font-heading font-semibold text-xl text-navy">
+                      {cert}
+                    </h3>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -224,7 +241,13 @@ export default function Experience() {
 
       {/* Call to Action */}
       <section className="py-16 bg-navy text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <motion.div 
+          className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeUp.light}
+        >
           <h2 className="font-heading font-bold text-3xl mb-6">
             Explore My Work
           </h2>
@@ -234,7 +257,7 @@ export default function Experience() {
           <Button href="/portfolio" variant="secondary" className="bg-white text-navy hover:bg-gray-100">
             View Portfolio
           </Button>
-        </div>
+        </motion.div>
       </section>
     </div>
   )

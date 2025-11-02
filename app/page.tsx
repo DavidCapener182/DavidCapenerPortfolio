@@ -4,29 +4,17 @@ import HeroBanner from '@/components/HeroBanner'
 import AchievementCard from '@/components/AchievementCard'
 import Button from '@/components/Button'
 import { UserGroupIcon, ShieldCheckIcon, ChartBarIcon, LightBulbIcon } from '@heroicons/react/24/outline'
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { fadeUp, staggerContainer, zoomIn } from '@/lib/animationVariants'
+import { useRef } from 'react'
 
 export default function Home() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8
-      }
-    }
-  }
+  const quoteRef = useRef<HTMLElement>(null)
+  const { scrollYProgress: quoteScrollProgress } = useScroll({
+    target: quoteRef,
+    offset: ['start end', 'end start']
+  })
+  const quoteParallaxY = useTransform(quoteScrollProgress, [0, 1], ['0%', '30%'])
 
   return (
     <div className="pt-16">
@@ -48,7 +36,13 @@ export default function Home() {
           }}></div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
+          <motion.div 
+            className="max-w-4xl mx-auto text-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeUp.full}
+          >
             <div className="inline-block mb-6">
               <div className="w-20 h-1 bg-red mx-auto mb-4"></div>
             </div>
@@ -58,23 +52,38 @@ export default function Home() {
             <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
               Having led operations at some of the nation's most prestigious events—including <span className="font-semibold text-navy">Eurovision 2023</span>, <span className="font-semibold text-navy">Creamfields Festival</span>, and <span className="font-semibold text-navy">Rebellion Festival</span>—I am passionate about maintaining the highest standards of safety, professionalism, and customer service.
             </p>
-          </div>
+          </motion.div>
 
           {/* Credentials Icons */}
-          <div className="mt-12 flex justify-center items-center space-x-6 flex-wrap gap-6">
-            <div className="bg-white rounded-xl px-6 py-4 shadow-lg border-2 border-red/20 hover:border-red transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1">
+          <motion.div 
+            className="mt-12 flex justify-center items-center space-x-6 flex-wrap gap-6"
+            variants={staggerContainer.full}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <motion.div 
+              className="bg-white rounded-xl px-6 py-4 shadow-lg border-2 border-red/20 hover:border-red transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
+              variants={zoomIn.full}
+            >
               <div className="text-3xl font-bold text-navy mb-1">Level 5</div>
               <div className="text-sm text-gray-600 font-semibold">Crowd Safety</div>
-            </div>
-            <div className="bg-white rounded-xl px-6 py-4 shadow-lg border-2 border-red/20 hover:border-red transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1">
+            </motion.div>
+            <motion.div 
+              className="bg-white rounded-xl px-6 py-4 shadow-lg border-2 border-red/20 hover:border-red transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
+              variants={zoomIn.full}
+            >
               <div className="text-3xl font-bold text-navy mb-1">MIMMS</div>
               <div className="text-sm text-gray-600 font-semibold">Certified</div>
-            </div>
-            <div className="bg-white rounded-xl px-6 py-4 shadow-lg border-2 border-red/20 hover:border-red transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1">
+            </motion.div>
+            <motion.div 
+              className="bg-white rounded-xl px-6 py-4 shadow-lg border-2 border-red/20 hover:border-red transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
+              variants={zoomIn.full}
+            >
               <div className="text-3xl font-bold text-navy mb-1">IOSH</div>
               <div className="text-sm text-gray-600 font-semibold">Managing Safely</div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -82,12 +91,18 @@ export default function Home() {
       <section id="achievements" className="py-20 bg-white relative">
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-red to-transparent"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeUp.full}
+          >
             <h2 className="font-heading font-bold text-4xl md:text-5xl text-navy mb-4">
               Key Achievements
             </h2>
             <div className="w-24 h-1 bg-red mx-auto"></div>
-          </div>
+          </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <AchievementCard
               title="Eurovision 2023, Liverpool"
@@ -122,13 +137,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="grid grid-cols-1 md:grid-cols-3 gap-12"
-            variants={containerVariants}
+            variants={staggerContainer.full}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
           >
             {/* Column 1: Research & Planning */}
-            <motion.div className="text-center" variants={itemVariants}>
+            <motion.div className="text-center" variants={fadeUp.full}>
               <div className="font-heading text-8xl text-white/10 mb-4">001</div>
               <h3 className="font-heading font-bold text-2xl uppercase text-gray-900 mb-6">
                 Research & Planning
@@ -142,7 +157,7 @@ export default function Home() {
             </motion.div>
 
             {/* Column 2: Leadership & Execution */}
-            <motion.div className="text-center" variants={itemVariants}>
+            <motion.div className="text-center" variants={fadeUp.full}>
               <div className="font-heading text-8xl text-white/10 mb-4">002</div>
               <h3 className="font-heading font-bold text-2xl uppercase text-gray-900 mb-6">
                 Leadership & Execution
@@ -156,7 +171,7 @@ export default function Home() {
             </motion.div>
 
             {/* Column 3: Optimize & Improve */}
-            <motion.div className="text-center" variants={itemVariants}>
+            <motion.div className="text-center" variants={fadeUp.full}>
               <div className="font-heading text-8xl text-white/10 mb-4">003</div>
               <h3 className="font-heading font-bold text-2xl uppercase text-gray-900 mb-6">
                 Optimize & Improve
@@ -173,19 +188,22 @@ export default function Home() {
       </section>
 
       {/* Quote/Motto Section */}
-      <section className="py-32 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
+      <section ref={quoteRef} className="py-32 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
+        <motion.div 
+          className="absolute inset-0 opacity-10"
+          style={{ y: quoteParallaxY, willChange: 'transform' }}
+        >
           <div className="absolute inset-0" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
             backgroundSize: '60px 60px'
           }}></div>
-        </div>
+        </motion.div>
         <motion.div 
           className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
+          variants={fadeUp.full}
         >
           <blockquote className="text-white text-2xl md:text-4xl font-heading font-semibold italic leading-relaxed">
             Security is not about control—it's about foresight, collaboration, and calm leadership in every circumstance.
@@ -202,7 +220,13 @@ export default function Home() {
             backgroundSize: '50px 50px'
           }}></div>
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <motion.div 
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeUp.full}
+        >
           <h2 className="font-heading font-bold text-4xl md:text-5xl mb-6">
             Ready to Collaborate?
           </h2>
@@ -217,7 +241,7 @@ export default function Home() {
               View Portfolio
             </Button>
           </div>
-        </div>
+        </motion.div>
       </section>
     </div>
   )
