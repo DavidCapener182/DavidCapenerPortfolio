@@ -8,7 +8,7 @@ export const fadeUp = {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.6, -0.05, 0.01, 0.99]
+        ease: [0.6, -0.05, 0.01, 0.99] as const
       }
     }
   },
@@ -19,7 +19,7 @@ export const fadeUp = {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.6, -0.05, 0.01, 0.99]
+        ease: [0.6, -0.05, 0.01, 0.99] as const
       }
     }
   },
@@ -30,7 +30,7 @@ export const fadeUp = {
       y: 0,
       transition: {
         duration: 0.5,
-        ease: [0.6, -0.05, 0.01, 0.99]
+        ease: [0.6, -0.05, 0.01, 0.99] as const
       }
     }
   },
@@ -40,7 +40,7 @@ export const fadeUp = {
       opacity: 1,
       transition: {
         duration: 0.3,
-        ease: [0.6, -0.05, 0.01, 0.99]
+        ease: [0.6, -0.05, 0.01, 0.99] as const
       }
     }
   }
@@ -53,7 +53,7 @@ export const fadeIn = {
       opacity: 1,
       transition: {
         duration: 0.8,
-        ease: [0.6, -0.05, 0.01, 0.99]
+        ease: [0.6, -0.05, 0.01, 0.99] as const
       }
     }
   },
@@ -63,7 +63,7 @@ export const fadeIn = {
       opacity: 1,
       transition: {
         duration: 0.6,
-        ease: [0.6, -0.05, 0.01, 0.99]
+        ease: [0.6, -0.05, 0.01, 0.99] as const
       }
     }
   },
@@ -73,7 +73,7 @@ export const fadeIn = {
       opacity: 1,
       transition: {
         duration: 0.4,
-        ease: [0.6, -0.05, 0.01, 0.99]
+        ease: [0.6, -0.05, 0.01, 0.99] as const
       }
     }
   },
@@ -83,7 +83,7 @@ export const fadeIn = {
       opacity: 1,
       transition: {
         duration: 0.3,
-        ease: [0.6, -0.05, 0.01, 0.99]
+        ease: [0.6, -0.05, 0.01, 0.99] as const
       }
     }
   }
@@ -97,7 +97,7 @@ export const slideLeft = {
       x: 0,
       transition: {
         duration: 0.8,
-        ease: [0.6, -0.05, 0.01, 0.99]
+        ease: [0.6, -0.05, 0.01, 0.99] as const
       }
     }
   },
@@ -108,7 +108,7 @@ export const slideLeft = {
       x: 0,
       transition: {
         duration: 0.6,
-        ease: [0.6, -0.05, 0.01, 0.99]
+        ease: [0.6, -0.05, 0.01, 0.99] as const
       }
     }
   },
@@ -119,7 +119,7 @@ export const slideLeft = {
       x: 0,
       transition: {
         duration: 0.5,
-        ease: [0.6, -0.05, 0.01, 0.99]
+        ease: [0.6, -0.05, 0.01, 0.99] as const
       }
     }
   }
@@ -133,7 +133,7 @@ export const slideRight = {
       x: 0,
       transition: {
         duration: 0.8,
-        ease: [0.6, -0.05, 0.01, 0.99]
+        ease: [0.6, -0.05, 0.01, 0.99] as const
       }
     }
   },
@@ -144,7 +144,7 @@ export const slideRight = {
       x: 0,
       transition: {
         duration: 0.6,
-        ease: [0.6, -0.05, 0.01, 0.99]
+        ease: [0.6, -0.05, 0.01, 0.99] as const
       }
     }
   },
@@ -155,7 +155,7 @@ export const slideRight = {
       x: 0,
       transition: {
         duration: 0.5,
-        ease: [0.6, -0.05, 0.01, 0.99]
+        ease: [0.6, -0.05, 0.01, 0.99] as const
       }
     }
   }
@@ -169,7 +169,7 @@ export const zoomIn = {
       scale: 1,
       transition: {
         duration: 0.8,
-        ease: [0.6, -0.05, 0.01, 0.99]
+        ease: [0.6, -0.05, 0.01, 0.99] as const
       }
     }
   },
@@ -180,7 +180,7 @@ export const zoomIn = {
       scale: 1,
       transition: {
         duration: 0.6,
-        ease: [0.6, -0.05, 0.01, 0.99]
+        ease: [0.6, -0.05, 0.01, 0.99] as const
       }
     }
   },
@@ -191,7 +191,7 @@ export const zoomIn = {
       scale: 1,
       transition: {
         duration: 0.5,
-        ease: [0.6, -0.05, 0.01, 0.99]
+        ease: [0.6, -0.05, 0.01, 0.99] as const
       }
     }
   }
