@@ -18,15 +18,15 @@ export default function Testimonials() {
   return (
     <div ref={containerRef} className="pt-16 relative">
       {/* Vertical Progress Indicator */}
-      <div className="fixed right-0 top-16 bottom-0 w-1 bg-gray-200 z-30">
+      <div className="hidden md:block fixed right-0 top-16 bottom-0 w-1 bg-gray-200 z-30">
         <motion.div
           className="w-full bg-red origin-top"
           style={{ scaleY: pageScrollProgress, height: '100%' }}
         />
       </div>
       {/* Hero Banner */}
-      <section className="relative h-screen snap-start">
-        <div className="sticky top-0 h-screen">
+      <section className="relative min-h-screen md:h-screen snap-start">
+        <div className="md:sticky md:top-0 h-screen">
           <HeroBanner
             title="Professional References & Endorsements"
             description="Peer and client feedback showcasing leadership in safety operations, crisis management, and counter-terrorism readiness — highlighting trust, collaboration, and professional integrity across high-profile environments."
@@ -35,7 +35,7 @@ export default function Testimonials() {
       </section>
 
       {/* Introduction */}
-      <section className="py-16 bg-white">
+      <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -43,13 +43,13 @@ export default function Testimonials() {
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeUp.moderate}
           >
-            <h2 className="font-heading font-bold text-3xl text-navy mb-6 text-center">
+            <h2 className="font-heading font-bold text-2xl sm:text-3xl text-navy mb-6 text-center">
               Valued Feedback
             </h2>
-            <p className="text-lg text-gray-700 leading-relaxed mb-4">
+            <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4">
               Throughout my career, I've worked alongside exceptional colleagues, clients, and partner agencies who have provided valuable insight into my leadership style, operational judgement, and commitment to safety.
             </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
               These endorsements reflect the professional relationships and trust developed across events, civic venues, and educational environments. Testimonials will be populated following ongoing engagements and forthcoming interview processes.
             </p>
           </motion.div>
@@ -57,10 +57,10 @@ export default function Testimonials() {
       </section>
 
       {/* Testimonial Cards */}
-      <section className="py-16 bg-lightgrey">
+      <section className="py-12 sm:py-16 bg-lightgrey">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
             variants={staggerContainer.moderate}
             initial="hidden"
             whileInView="visible"
@@ -225,16 +225,16 @@ export default function Testimonials() {
       </section>
 
       {/* Note Section */}
-      <section className="py-16 bg-white">
+      <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeUp.moderate}
-            className="bg-lightgrey p-6 rounded-lg border-l-4 border-red"
+            className="bg-lightgrey p-4 sm:p-6 rounded-lg border-l-4 border-red"
           >
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">
               <strong className="text-navy">Note:</strong> Formal written references and detailed testimonials are available upon request. This page will be updated with verified endorsements following upcoming professional interviews and collaborations. For immediate reference verification or additional details, please contact me directly.
             </p>
             <div className="flex justify-center mt-6">
@@ -251,7 +251,7 @@ export default function Testimonials() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-navy text-white">
+      <section className="py-12 sm:py-16 bg-navy text-white">
         <motion.div 
           className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
           initial="hidden"
@@ -259,10 +259,10 @@ export default function Testimonials() {
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp.moderate}
         >
-          <h2 className="font-heading font-bold text-3xl mb-6">
+          <h2 className="font-heading font-bold text-2xl sm:text-3xl mb-6">
             Interested in Learning More?
           </h2>
-          <p className="text-lg mb-8 leading-relaxed">
+          <p className="text-base sm:text-lg mb-8 leading-relaxed">
             I'd be delighted to discuss my experience, provide references, or answer questions regarding my approach to safety leadership, counter-terrorism preparedness, and team development.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
