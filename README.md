@@ -43,7 +43,14 @@ DavidCapenerPortfolio/
 │   ├── AchievementCard.tsx # Achievement card component
 │   ├── Button.tsx          # Button component
 │   ├── CaseStudy.tsx       # Case study component
-│   └── ContactForm.tsx     # Contact form with EmailJS
+│   ├── ContactForm.tsx     # Contact form with EmailJS
+│   └── ui/                # Shadcn/ui components
+│       ├── card.tsx
+│       ├── button.tsx
+│       ├── input.tsx
+│       ├── badge.tsx
+│       ├── separator.tsx
+│       └── ...
 ├── public/                 # Static assets
 │   ├── images/            # Image files (see Images section below)
 │   └── videos/            # Video files (optional)
@@ -123,6 +130,19 @@ The contact form uses EmailJS to send emails without a backend server.
 
 **Note:** The contact form will work without EmailJS configuration, but submissions won't be sent. For production, ensure environment variables are set in your hosting platform.
 
+## ✨ Design Features
+
+The portfolio features a modern, professional design enhanced with:
+
+- **Responsive Layout**: Optimized for mobile, tablet, and desktop
+- **Shadcn/ui Components**: Accessible, consistent UI components
+- **Framer Motion Animations**: Smooth page transitions and interactive elements
+- **Heroicons**: Professional outline icons throughout
+- **Dark Mode Navigation**: Sleek dark header with modern styling
+- **Gradient Backgrounds**: Subtle gradients and patterns for visual interest
+- **Card-Based Layout**: Clean card designs for content organization
+- **Hover Effects**: Interactive hover states on buttons and cards
+
 ## 🎨 Customization
 
 ### Colors
@@ -197,7 +217,10 @@ This Next.js app can be deployed to:
 - **React 19** - UI library
 - **TypeScript** - Type safety
 - **Tailwind CSS** - Utility-first CSS framework
+- **Shadcn/ui** - Accessible component library
+- **Framer Motion** - Animation library
 - **EmailJS** - Email service integration
+- **Heroicons** - Icon library
 - **Google Fonts** - Montserrat & Open Sans
 
 ## 📱 Browser Support

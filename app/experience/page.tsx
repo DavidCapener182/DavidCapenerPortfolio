@@ -1,4 +1,13 @@
 import Button from '@/components/Button'
+import { Card, CardContent } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Professional Experience & Certifications | David Capener',
+  description: 'View career timeline, qualifications, and professional experience spanning Compact Security, H&A Protection Services, and major UK event venues.',
+  keywords: 'Security Career, Crowd Safety Qualifications, MIMMS Certification, Level 5 Crowd Safety, Security Experience',
+}
 
 export default function Experience() {
   return (
@@ -169,14 +178,16 @@ export default function Experience() {
               'NVQ Level 2 & 3 Spectator Safety',
               'SIA Licensed Door Supervisor',
             ].map((cert, index) => (
-              <div
+              <Card
                 key={index}
-                className="bg-white p-6 rounded-lg shadow-md border-l-4 border-red hover:shadow-lg transition-shadow"
+                className="border-l-4 border-l-red shadow-md hover:shadow-lg transition-shadow"
               >
-                <h3 className="font-heading font-semibold text-xl text-navy">
-                  {cert}
-                </h3>
-              </div>
+                <CardContent className="p-6">
+                  <h3 className="font-heading font-semibold text-xl text-navy">
+                    {cert}
+                  </h3>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
@@ -199,12 +210,13 @@ export default function Experience() {
               'Strategic Planning',
               'Emergency Response Coordination',
             ].map((skill, index) => (
-              <span
+              <Badge
                 key={index}
-                className="bg-navy text-white px-6 py-3 rounded-full font-semibold"
+                variant="secondary"
+                className="bg-navy text-white px-6 py-3 text-base hover:bg-navy/90"
               >
                 {skill}
-              </span>
+              </Badge>
             ))}
           </div>
         </div>

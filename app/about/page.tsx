@@ -1,5 +1,14 @@
 import Image from 'next/image'
 import Button from '@/components/Button'
+import { Card, CardContent } from '@/components/ui/card'
+import { Separator } from '@/components/ui/separator'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'About David Capener | Security Operations Professional',
+  description: 'Learn about David Capener\'s 12+ years of experience in crowd safety management, operational oversight, and emergency response planning across major UK events.',
+  keywords: 'Security Manager Profile, Crowd Safety Experience, Event Security Background, Professional Biography',
+}
 
 export default function About() {
   return (
@@ -57,30 +66,36 @@ export default function About() {
             I specialise in crowd safety management, operational oversight, and emergency response planning. My leadership philosophy centres on three principles:
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-red">
-              <h3 className="font-heading font-semibold text-xl text-navy mb-3">
-                1. Preparation
-              </h3>
-              <p className="text-gray-700">
-                Every event is only as strong as its planning.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-red">
-              <h3 className="font-heading font-semibold text-xl text-navy mb-3">
-                2. Leadership
-              </h3>
-              <p className="text-gray-700">
-                Calm, decisive guidance builds trust and efficiency.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-red">
-              <h3 className="font-heading font-semibold text-xl text-navy mb-3">
-                3. Communication
-              </h3>
-              <p className="text-gray-700">
-                Clear, respectful communication ensures safety and professionalism at every level.
-              </p>
-            </div>
+            <Card className="border-l-4 border-l-red shadow-md">
+              <CardContent className="p-6">
+                <h3 className="font-heading font-semibold text-xl text-navy mb-3">
+                  1. Preparation
+                </h3>
+                <p className="text-gray-700">
+                  Every event is only as strong as its planning.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="border-l-4 border-l-red shadow-md">
+              <CardContent className="p-6">
+                <h3 className="font-heading font-semibold text-xl text-navy mb-3">
+                  2. Leadership
+                </h3>
+                <p className="text-gray-700">
+                  Calm, decisive guidance builds trust and efficiency.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="border-l-4 border-l-red shadow-md">
+              <CardContent className="p-6">
+                <h3 className="font-heading font-semibold text-xl text-navy mb-3">
+                  3. Communication
+                </h3>
+                <p className="text-gray-700">
+                  Clear, respectful communication ensures safety and professionalism at every level.
+                </p>
+              </CardContent>
+            </Card>
           </div>
           <p className="mt-8 text-lg text-gray-700 leading-relaxed">
             These values have guided my work with organisations such as Compact Security, H&A Protection Services, Showsec, G4S, and Liverpool Football Club, where collaboration and integrity remain at the core of every success.

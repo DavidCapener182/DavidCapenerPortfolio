@@ -1,5 +1,13 @@
 import ContactForm from '@/components/ContactForm'
 import Button from '@/components/Button'
+import { Card, CardContent } from '@/components/ui/card'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Contact | Get in Touch | David Capener',
+  description: 'Contact David Capener for security consultancy, event planning, and leadership opportunities. Available for major UK venues and festivals.',
+  keywords: 'Contact Security Manager, Event Security Consulting, Crowd Safety Contact, Security Professional UK',
+}
 
 export default function Contact() {
   return (
@@ -35,33 +43,37 @@ export default function Contact() {
             Direct Contact
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="bg-white p-8 rounded-lg shadow-lg text-center">
-              <div className="text-4xl mb-4">📧</div>
-              <h3 className="font-heading font-semibold text-xl text-navy mb-3">
-                Email
-              </h3>
-              <a
-                href="mailto:Capener182@googlemail.com"
-                className="text-red hover:text-red-700 transition-colors break-all"
-              >
-                Capener182@googlemail.com
-              </a>
-            </div>
+            <Card className="text-center shadow-lg">
+              <CardContent className="p-8">
+                <div className="text-4xl mb-4">📧</div>
+                <h3 className="font-heading font-semibold text-xl text-navy mb-3">
+                  Email
+                </h3>
+                <a
+                  href="mailto:Capener182@googlemail.com"
+                  className="text-red hover:text-red-700 transition-colors break-all"
+                >
+                  Capener182@googlemail.com
+                </a>
+              </CardContent>
+            </Card>
 
-            <div className="bg-white p-8 rounded-lg shadow-lg text-center">
-              <div className="text-4xl mb-4">💼</div>
-              <h3 className="font-heading font-semibold text-xl text-navy mb-3">
-                LinkedIn
-              </h3>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-red hover:text-red-700 transition-colors"
-              >
-                Connect on LinkedIn
-              </a>
-            </div>
+            <Card className="text-center shadow-lg">
+              <CardContent className="p-8">
+                <div className="text-4xl mb-4">💼</div>
+                <h3 className="font-heading font-semibold text-xl text-navy mb-3">
+                  LinkedIn
+                </h3>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-red hover:text-red-700 transition-colors"
+                >
+                  Connect on LinkedIn
+                </a>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>

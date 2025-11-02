@@ -1,6 +1,13 @@
 import Button from '@/components/Button'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Testimonials | David Capener Security Operations',
+  description: 'Read testimonials from event organizers and industry professionals highlighting David Capener\'s expertise in crowd safety and security operations.',
+  keywords: 'Security Testimonials, Client Feedback, Professional References, Event Security Reviews',
+}
 
 export default function Testimonials() {
   const testimonials = [

@@ -1,6 +1,14 @@
 import HeroBanner from '@/components/HeroBanner'
 import CaseStudy from '@/components/CaseStudy'
 import Button from '@/components/Button'
+import { Card, CardContent } from '@/components/ui/card'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Portfolio & Case Studies | David Capener Security',
+  description: 'Explore case studies from Eurovision 2023, Creamfields Festival, Rebellion Festival, and AI-driven event management platform development.',
+  keywords: 'Security Case Studies, Event Security Projects, Eurovision Security, Festival Safety Management, AI Security Platform',
+}
 
 export default function Portfolio() {
   return (
@@ -88,7 +96,7 @@ export default function Portfolio() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Placeholder gallery images */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <Card className="overflow-hidden shadow-lg">
               <div className="relative h-64 bg-gray-300">
                 <img
                   src="/images/gallery-1.jpg"
@@ -96,11 +104,11 @@ export default function Portfolio() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="p-4">
+              <CardContent className="p-4">
                 <p className="text-sm text-gray-600">Major Event Operations</p>
-              </div>
-            </div>
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              </CardContent>
+            </Card>
+            <Card className="overflow-hidden shadow-lg">
               <div className="relative h-64 bg-gray-300">
                 <img
                   src="/images/gallery-2.jpg"
@@ -108,11 +116,11 @@ export default function Portfolio() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="p-4">
+              <CardContent className="p-4">
                 <p className="text-sm text-gray-600">Team Leadership</p>
-              </div>
-            </div>
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              </CardContent>
+            </Card>
+            <Card className="overflow-hidden shadow-lg">
               <div className="relative h-64 bg-gray-300">
                 <img
                   src="/images/gallery-3.jpg"
@@ -120,10 +128,10 @@ export default function Portfolio() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="p-4">
+              <CardContent className="p-4">
                 <p className="text-sm text-gray-600">Control Room Operations</p>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
