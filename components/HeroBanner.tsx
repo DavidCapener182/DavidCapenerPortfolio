@@ -1,4 +1,7 @@
+'use client'
+
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 
 interface HeroBannerProps {
   title: string
@@ -63,26 +66,46 @@ export default function HeroBanner({
 
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8">
-        <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-white mb-4">
+        <motion.h1 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-white mb-4"
+        >
           {title}
-        </h1>
+        </motion.h1>
         {subtitle && (
-          <h2 className="font-heading font-semibold text-2xl md:text-3xl text-white mb-6">
+          <motion.h2 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="font-heading font-semibold text-2xl md:text-3xl text-white mb-6"
+          >
             {subtitle}
-          </h2>
+          </motion.h2>
         )}
         {description && (
-          <p className="text-lg md:text-xl text-white max-w-3xl mb-8">
+          <motion.p 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-lg md:text-xl text-white max-w-3xl mb-8"
+          >
             {description}
-          </p>
+          </motion.p>
         )}
         {ctaText && ctaHref && (
-          <a
+          <motion.a
             href={ctaHref}
-            className="bg-red text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-red-700 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105 transform"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-red text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-red-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
           >
             {ctaText}
-          </a>
+          </motion.a>
         )}
       </div>
     </div>

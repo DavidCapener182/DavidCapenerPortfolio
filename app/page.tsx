@@ -1,9 +1,33 @@
+'use client'
+
 import HeroBanner from '@/components/HeroBanner'
 import AchievementCard from '@/components/AchievementCard'
 import Button from '@/components/Button'
 import { UserGroupIcon, ShieldCheckIcon, ChartBarIcon, LightBulbIcon } from '@heroicons/react/24/outline'
+import { motion } from 'framer-motion'
 
 export default function Home() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8
+      }
+    }
+  }
+
   return (
     <div className="pt-16">
       {/* Hero Banner */}
@@ -96,9 +120,15 @@ export default function Home() {
       {/* What I Offer */}
       <section className="py-32 bg-[#d4a574] relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-3 gap-12"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
             {/* Column 1: Research & Planning */}
-            <div className="text-center">
+            <motion.div className="text-center" variants={itemVariants}>
               <div className="font-heading text-8xl text-white/10 mb-4">001</div>
               <h3 className="font-heading font-bold text-2xl uppercase text-gray-900 mb-6">
                 Research & Planning
@@ -109,10 +139,10 @@ export default function Home() {
               <p className="text-gray-800 leading-relaxed">
                 Comprehensive risk assessment, strategic planning, and preparation for every operational challenge. Expert knowledge of health and safety law, crowd dynamics, and event logistics.
               </p>
-            </div>
+            </motion.div>
 
             {/* Column 2: Leadership & Execution */}
-            <div className="text-center">
+            <motion.div className="text-center" variants={itemVariants}>
               <div className="font-heading text-8xl text-white/10 mb-4">002</div>
               <h3 className="font-heading font-bold text-2xl uppercase text-gray-900 mb-6">
                 Leadership & Execution
@@ -123,10 +153,10 @@ export default function Home() {
               <p className="text-gray-800 leading-relaxed">
                 Proven operational leadership in fast-paced, high-pressure settings. Calm, decisive guidance that builds trust and efficiency across multi-disciplinary teams.
               </p>
-            </div>
+            </motion.div>
 
             {/* Column 3: Optimize & Improve */}
-            <div className="text-center">
+            <motion.div className="text-center" variants={itemVariants}>
               <div className="font-heading text-8xl text-white/10 mb-4">003</div>
               <h3 className="font-heading font-bold text-2xl uppercase text-gray-900 mb-6">
                 Optimize & Improve
@@ -137,8 +167,8 @@ export default function Home() {
               <p className="text-gray-800 leading-relaxed">
                 A proactive, innovative approach to integrating technology and continuous improvement into security operations. Building AI-driven platforms for smarter decision-making.
               </p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -150,12 +180,18 @@ export default function Home() {
             backgroundSize: '60px 60px'
           }}></div>
         </div>
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <motion.div 
+          className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+        >
           <blockquote className="text-white text-2xl md:text-4xl font-heading font-semibold italic leading-relaxed">
             Security is not about control—it's about foresight, collaboration, and calm leadership in every circumstance.
           </blockquote>
           <div className="w-24 h-0.5 bg-white/30 mx-auto mt-8"></div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Call to Action */}
