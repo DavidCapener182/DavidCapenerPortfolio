@@ -9,7 +9,14 @@ import { fadeUp, staggerContainer, zoomIn } from '@/lib/animationVariants'
 import { useRef } from 'react'
 
 export default function Home() {
+  const containerRef = useRef<HTMLDivElement>(null)
   const quoteRef = useRef<HTMLElement>(null)
+  
+  const { scrollYProgress: pageScrollProgress } = useScroll({
+    target: containerRef,
+    offset: ['start start', 'end end']
+  })
+  
   const { scrollYProgress: quoteScrollProgress } = useScroll({
     target: quoteRef,
     offset: ['start end', 'end start']
@@ -17,25 +24,37 @@ export default function Home() {
   const quoteParallaxY = useTransform(quoteScrollProgress, [0, 1], ['0%', '30%'])
 
   return (
-    <div className="pt-16">
+    <div ref={containerRef} className="pt-16 relative">
+      {/* Vertical Progress Indicator */}
+      <div className="hidden md:block fixed right-0 top-16 bottom-0 w-1 bg-gray-200 z-30">
+        <motion.div
+          className="w-full bg-red origin-top"
+          style={{ scaleY: pageScrollProgress, height: '100%' }}
+        />
+      </div>
       {/* Hero Banner */}
-      <HeroBanner
-        title="David Capener — Security Operations & Crowd Safety Leader"
-        subtitle="Protecting People. Managing Crowds. Leading Teams with Precision and Integrity."
-        description="Delivering safe, seamless, and people-centred security operations across large-scale events, festivals, and public venues."
-        ctaText="View My Work"
-        ctaHref="#achievements"
-      />
+      <section className="relative min-h-screen md:h-screen snap-start">
+        <div className="md:sticky md:top-0 h-screen">
+          <HeroBanner
+            title="David Capener — Security Operations & Crowd Safety Leader"
+            subtitle="Protecting People. Building Confidence. Leading Teams with Precision and Integrity."
+            description="Dedicated to creating safer, more inclusive environments across events, campuses, and public venues — integrating counter terrorism awareness and protective security principles into every operation."
+            ctaText="View My Work"
+            ctaHref="#achievements"
+          />
+        </div>
+      </section>
 
       {/* Professional Overview */}
-      <section className="py-20 bg-gradient-to-b from-lightgrey to-white relative overflow-hidden">
+      <section className="relative min-h-screen md:h-screen snap-start">
+        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-gradient-to-b from-lightgrey to-white relative overflow-hidden pt-20 md:pt-0">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
             backgroundImage: `radial-gradient(circle at 1px 1px, navy 1px, transparent 0)`,
             backgroundSize: '30px 30px'
           }}></div>
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-12 sm:py-16 md:py-20">
           <motion.div 
             className="max-w-4xl mx-auto text-center"
             initial="hidden"
@@ -46,149 +65,175 @@ export default function Home() {
             <div className="inline-block mb-6">
               <div className="w-20 h-1 bg-red mx-auto mb-4"></div>
             </div>
-            <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6 font-medium">
-              I am a dedicated Security Operations Manager and Team Leader with over a decade of experience managing complex crowd environments across the United Kingdom. My expertise spans strategic planning, emergency response, and large-scale event coordination.
-            </p>
-            <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-              Having led operations at some of the nation's most prestigious events—including <span className="font-semibold text-navy">Eurovision 2023</span>, <span className="font-semibold text-navy">Creamfields Festival</span>, and <span className="font-semibold text-navy">Rebellion Festival</span>—I am passionate about maintaining the highest standards of safety, professionalism, and customer service.
+            <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed mb-6 font-medium">
+              I am committed to fostering safe, inclusive, and welcoming environments that allow students, staff, and visitors to thrive — balancing firm operational standards with a people-first approach. My leadership style emphasises calm, evidence-based decision-making and continuous professional development across my teams, with counter terrorism awareness and protective security principles embedded throughout all operational protocols.
             </p>
           </motion.div>
 
           {/* Credentials Icons */}
+          <motion.p 
+            className="text-center text-gray-600 mb-8 mt-8 text-sm sm:text-base px-4"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeUp.moderate}
+          >
+            Fully qualified with industry-recognised certifications including Counter Terrorism Level 6 (Protective Security), ensuring compliance, professional accountability, and continual improvement.
+          </motion.p>
           <motion.div 
-            className="mt-12 flex justify-center items-center space-x-6 flex-wrap gap-6"
+            className="mt-8 sm:mt-12 flex justify-center items-center space-x-4 sm:space-x-6 flex-wrap gap-4 sm:gap-6"
             variants={staggerContainer.full}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
           >
             <motion.div 
-              className="bg-white rounded-xl px-6 py-4 shadow-lg border-2 border-red/20 hover:border-red transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
+              className="bg-white rounded-xl px-4 sm:px-6 py-3 sm:py-4 shadow-lg border-2 border-red/20 hover:border-red transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
               variants={zoomIn.full}
             >
-              <div className="text-3xl font-bold text-navy mb-1">Level 5</div>
-              <div className="text-sm text-gray-600 font-semibold">Crowd Safety</div>
+              <div className="text-2xl sm:text-3xl font-bold text-navy mb-1">Level 5</div>
+              <div className="text-xs sm:text-sm text-gray-600 font-semibold">Crowd Safety</div>
             </motion.div>
             <motion.div 
-              className="bg-white rounded-xl px-6 py-4 shadow-lg border-2 border-red/20 hover:border-red transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
+              className="bg-white rounded-xl px-4 sm:px-6 py-3 sm:py-4 shadow-lg border-2 border-red/20 hover:border-red transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
               variants={zoomIn.full}
             >
-              <div className="text-3xl font-bold text-navy mb-1">MIMMS</div>
-              <div className="text-sm text-gray-600 font-semibold">Certified</div>
+              <div className="text-2xl sm:text-3xl font-bold text-navy mb-1">Level 6</div>
+              <div className="text-xs sm:text-sm text-gray-600 font-semibold">Counter Terrorism</div>
             </motion.div>
             <motion.div 
-              className="bg-white rounded-xl px-6 py-4 shadow-lg border-2 border-red/20 hover:border-red transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
+              className="bg-white rounded-xl px-4 sm:px-6 py-3 sm:py-4 shadow-lg border-2 border-red/20 hover:border-red transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
               variants={zoomIn.full}
             >
-              <div className="text-3xl font-bold text-navy mb-1">IOSH</div>
-              <div className="text-sm text-gray-600 font-semibold">Managing Safely</div>
+              <div className="text-2xl sm:text-3xl font-bold text-navy mb-1">MIMMS</div>
+              <div className="text-xs sm:text-sm text-gray-600 font-semibold">Certified</div>
+            </motion.div>
+            <motion.div 
+              className="bg-white rounded-xl px-4 sm:px-6 py-3 sm:py-4 shadow-lg border-2 border-red/20 hover:border-red transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
+              variants={zoomIn.full}
+            >
+              <div className="text-2xl sm:text-3xl font-bold text-navy mb-1">IOSH</div>
+              <div className="text-xs sm:text-sm text-gray-600 font-semibold">Managing Safely</div>
             </motion.div>
           </motion.div>
         </div>
+      </div>
       </section>
 
       {/* Key Achievements */}
-      <section id="achievements" className="py-20 bg-white relative">
+      <section id="achievements" className="relative min-h-screen md:h-screen snap-start">
+        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-white relative pt-20 md:pt-0">
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-red to-transparent"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20">
           <motion.div 
-            className="text-center mb-16"
+            className="text-center mb-8 sm:mb-12 md:mb-16"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeUp.full}
           >
-            <h2 className="font-heading font-bold text-4xl md:text-5xl text-navy mb-4">
+            <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-navy mb-4">
               Key Achievements
             </h2>
             <div className="w-24 h-1 bg-red mx-auto"></div>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
             <AchievementCard
               title="Eurovision 2023, Liverpool"
+              subtitle="Full venue management and live broadcast security — delivered with zero major incidents."
               description="Delivered full venue security management at the M&S Bank Arena, coordinating 75 staff across a one-month build and eight live show days in partnership with the BBC and arena management."
               imageSrc="/images/eurovision-arena.jpg"
               iconType="eurovision"
             />
             <AchievementCard
               title="Creamfields Festival (2013–Present)"
+              subtitle="Streamlined access operations and multi-agency coordination improving crowd efficiency."
               description="Provided long-term consultancy and operational leadership, managing gate operations, stage security, and control room command to ensure safe, efficient crowd movement across a decade of events."
               imageSrc="/images/creamfields-festival.jpg"
               iconType="creamfields"
             />
             <AchievementCard
               title="Rebellion Festival, Blackpool"
+              subtitle="Crisis-managed external riots through lockdown protocols protecting 10,000 attendees."
               description="Led a successful lockdown procedure protecting 10,000 attendees amid external riots involving over 1,000 people. Implemented crisis protocols that minimised disruption and ensured no casualties."
               imageSrc="/images/rebellion-festival.jpg"
               iconType="rebellion"
             />
             <AchievementCard
               title="AI-Driven Event Management Platform"
+              subtitle="Developing real-time decision-support tool aligned with Martyn's Law compliance."
               description="Designed and built a bespoke platform integrating Martyn's Law principles with artificial intelligence to support control rooms in real-time decision-making for festivals, music, and sporting events. Scheduled for live deployment in 2026 following successful testing phases."
               imageSrc="/images/ai-platform-mockup.png"
               iconType="ai"
             />
           </div>
         </div>
+      </div>
       </section>
 
       {/* What I Offer */}
-      <section className="py-32 bg-[#d4a574] relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative min-h-screen md:h-screen snap-start">
+        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-lightgrey relative pt-20 md:pt-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20">
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-3 gap-12"
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12"
             variants={staggerContainer.full}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
           >
-            {/* Column 1: Research & Planning */}
+            {/* Column 1: Operational Foresight & Risk Planning */}
             <motion.div className="text-center" variants={fadeUp.full}>
-              <div className="font-heading text-8xl text-white/10 mb-4">001</div>
-              <h3 className="font-heading font-bold text-2xl uppercase text-gray-900 mb-6">
-                Research & Planning
+              <div className="font-heading text-6xl sm:text-7xl md:text-8xl text-gray-300 mb-4">001</div>
+              <h3 className="font-heading font-bold text-xl sm:text-2xl uppercase text-navy mb-6">
+                Operational Foresight & Risk Planning
               </h3>
               <div className="flex justify-center mb-6">
-                <LightBulbIcon className="w-32 h-32 text-white" strokeWidth={0.5} />
+                <LightBulbIcon className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 text-red" strokeWidth={0.5} />
               </div>
-              <p className="text-gray-800 leading-relaxed">
-                Comprehensive risk assessment, strategic planning, and preparation for every operational challenge. Expert knowledge of health and safety law, crowd dynamics, and event logistics.
+              <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                Comprehensive risk assessment, strategic planning, and preparation for every operational challenge. Expert knowledge of health and safety law, crowd dynamics, and event logistics. Experienced in evidence-based decision-making, ensuring proportionate, lawful, and well-documented operational responses. Integrates counter terrorism awareness and protective security principles into all planning protocols, ensuring alignment with Martyn's Law requirements and current national security frameworks.
               </p>
             </motion.div>
 
-            {/* Column 2: Leadership & Execution */}
+            {/* Column 2: Leadership, Mentorship & Team Development */}
             <motion.div className="text-center" variants={fadeUp.full}>
-              <div className="font-heading text-8xl text-white/10 mb-4">002</div>
-              <h3 className="font-heading font-bold text-2xl uppercase text-gray-900 mb-6">
-                Leadership & Execution
+              <div className="font-heading text-6xl sm:text-7xl md:text-8xl text-gray-300 mb-4">002</div>
+              <h3 className="font-heading font-bold text-xl sm:text-2xl uppercase text-navy mb-6">
+                Leadership, Mentorship & Team Development
               </h3>
               <div className="flex justify-center mb-6">
-                <UserGroupIcon className="w-32 h-32 text-white" strokeWidth={0.5} />
+                <UserGroupIcon className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 text-red" strokeWidth={0.5} />
               </div>
-              <p className="text-gray-800 leading-relaxed">
-                Proven operational leadership in fast-paced, high-pressure settings. Calm, decisive guidance that builds trust and efficiency across multi-disciplinary teams.
+              <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-4">
+                Proven operational leadership in fast-paced, high-pressure settings. Calm, decisive guidance that builds trust and efficiency across multi-disciplinary teams. Proven experience managing multi-tiered security teams, ensuring staff welfare, motivation, and consistent performance under both routine and high-pressure conditions.
+              </p>
+              <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                Focused on building capability and wellbeing within teams, through mentoring, feedback, and structured development — ensuring consistent standards day and night.
               </p>
             </motion.div>
 
-            {/* Column 3: Optimize & Improve */}
+            {/* Column 3: Innovation & Continuous Improvement */}
             <motion.div className="text-center" variants={fadeUp.full}>
-              <div className="font-heading text-8xl text-white/10 mb-4">003</div>
-              <h3 className="font-heading font-bold text-2xl uppercase text-gray-900 mb-6">
-                Optimize & Improve
+              <div className="font-heading text-6xl sm:text-7xl md:text-8xl text-gray-300 mb-4">003</div>
+              <h3 className="font-heading font-bold text-xl sm:text-2xl uppercase text-navy mb-6">
+                Innovation & Continuous Improvement
               </h3>
               <div className="flex justify-center mb-6">
-                <ChartBarIcon className="w-32 h-32 text-white" strokeWidth={0.5} />
+                <ChartBarIcon className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 text-red" strokeWidth={0.5} />
               </div>
-              <p className="text-gray-800 leading-relaxed">
-                A proactive, innovative approach to integrating technology and continuous improvement into security operations. Building AI-driven platforms for smarter decision-making.
+              <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                A proactive, innovative approach to integrating technology and continuous improvement into security operations. Building AI-driven platforms for smarter decision-making. Skilled in analyzing incident data, identifying trends, and implementing preventive measures to enhance future performance.
               </p>
             </motion.div>
           </motion.div>
         </div>
+      </div>
       </section>
 
       {/* Quote/Motto Section */}
-      <section ref={quoteRef} className="py-32 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
+      <section ref={quoteRef} className="relative min-h-screen md:h-screen snap-start">
+        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden pt-20 md:pt-0">
         <motion.div 
           className="absolute inset-0 opacity-10"
           style={{ y: quoteParallaxY, willChange: 'transform' }}
@@ -199,50 +244,20 @@ export default function Home() {
           }}></div>
         </motion.div>
         <motion.div 
-          className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+          className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-12 sm:py-16 md:py-20"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp.full}
         >
-          <blockquote className="text-white text-2xl md:text-4xl font-heading font-semibold italic leading-relaxed">
-            Security is not about control—it's about foresight, collaboration, and calm leadership in every circumstance.
+          <blockquote className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl font-heading font-semibold italic leading-relaxed">
+            Security is not about control — it's about foresight, collaboration, and calm leadership that inspires confidence in every circumstance.
           </blockquote>
           <div className="w-24 h-0.5 bg-white/30 mx-auto mt-8"></div>
         </motion.div>
+      </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-br from-navy via-blue-900 to-navy text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
-            backgroundSize: '50px 50px'
-          }}></div>
-        </div>
-        <motion.div 
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeUp.full}
-        >
-          <h2 className="font-heading font-bold text-4xl md:text-5xl mb-6">
-            Ready to Collaborate?
-          </h2>
-          <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto leading-relaxed">
-            Whether leading campus support teams, managing festival control rooms, or advising on crowd safety strategy, I bring professionalism, precision, and calm leadership to every operation.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href="/contact" variant="primary" className="bg-red hover:bg-red-700 text-lg px-10 py-4 shadow-xl hover:shadow-2xl transform hover:scale-105">
-              Contact Me
-            </Button>
-            <Button href="/portfolio" variant="secondary" className="bg-white text-navy hover:bg-gray-100 text-lg px-10 py-4 shadow-xl hover:shadow-2xl transform hover:scale-105">
-              View Portfolio
-            </Button>
-          </div>
-        </motion.div>
-      </section>
     </div>
   )
 }

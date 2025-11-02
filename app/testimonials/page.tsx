@@ -1,145 +1,251 @@
 'use client'
 
+import HeroBanner from '@/components/HeroBanner'
 import Button from '@/components/Button'
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import { Separator } from '@/components/ui/separator'
-import { motion } from 'framer-motion'
+import { Card, CardContent } from '@/components/ui/card'
+import { motion, useScroll } from 'framer-motion'
 import { fadeUp, staggerContainer } from '@/lib/animationVariants'
+import { useRef } from 'react'
 
 export default function Testimonials() {
-  const testimonials = [
-    {
-      quote: "David consistently demonstrates professionalism, leadership, and a calm approach under pressure — an asset to any event.",
-      author: "Event Organiser",
-      company: "Major UK Festival",
-    },
-    {
-      quote: "His ability to manage complex security operations while maintaining positive client relations is second to none.",
-      author: "Venue Manager",
-      company: "M&S Bank Arena",
-    },
-    {
-      quote: "David's strategic thinking and operational expertise have been instrumental in ensuring safe and successful events year after year.",
-      author: "Security Director",
-      company: "Live Nation",
-    },
-    {
-      quote: "Working with David brings confidence and peace of mind. His attention to detail and crisis management skills are exceptional.",
-      author: "Client Representative",
-      company: "Private Event Management",
-    },
-  ]
-
-  const organizations = [
-    { name: 'Liverpool FC', logo: '/images/logos/liverpool-fc.png' },
-    { name: 'G4S', logo: '/images/logos/g4s.png' },
-    { name: 'BBC', logo: '/images/logos/bbc.png' },
-    { name: 'H&A Protection', logo: '/images/logos/ha-protection.png' },
-    { name: 'Compact Security', logo: '/images/logos/compact-security.png' },
-  ]
+  const containerRef = useRef<HTMLDivElement>(null)
+  
+  const { scrollYProgress: pageScrollProgress } = useScroll({
+    target: containerRef,
+    offset: ['start start', 'end end']
+  })
 
   return (
-    <div className="pt-16">
-      {/* Header */}
-      <section className="py-16 bg-lightgrey">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div ref={containerRef} className="pt-16 relative">
+      {/* Vertical Progress Indicator */}
+      <div className="fixed right-0 top-16 bottom-0 w-1 bg-gray-200 z-30">
+        <motion.div
+          className="w-full bg-red origin-top"
+          style={{ scaleY: pageScrollProgress, height: '100%' }}
+        />
+      </div>
+      {/* Hero Banner */}
+      <section className="relative h-screen snap-start">
+        <div className="sticky top-0 h-screen">
+          <HeroBanner
+            title="Professional References & Endorsements"
+            description="Peer and client feedback showcasing leadership in safety operations, crisis management, and counter-terrorism readiness — highlighting trust, collaboration, and professional integrity across high-profile environments."
+          />
+        </div>
+      </section>
+
+      {/* Introduction */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            variants={fadeUp.light}
+            variants={fadeUp.moderate}
           >
-            <h1 className="font-heading font-bold text-4xl md:text-5xl text-navy mb-4">
-              Testimonials
-            </h1>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Trust and credibility from clients, colleagues, and partners across the industry.
+            <h2 className="font-heading font-bold text-3xl text-navy mb-6 text-center">
+              Valued Feedback
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed mb-4">
+              Throughout my career, I've worked alongside exceptional colleagues, clients, and partner agencies who have provided valuable insight into my leadership style, operational judgement, and commitment to safety.
+            </p>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              These endorsements reflect the professional relationships and trust developed across events, civic venues, and educational environments. Testimonials will be populated following ongoing engagements and forthcoming interview processes.
             </p>
           </motion.div>
         </div>
       </section>
 
-      <Separator />
-
-      {/* Testimonials Grid */}
-      <section className="py-16 bg-white">
+      {/* Testimonial Cards */}
+      <section className="py-16 bg-lightgrey">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
-            variants={staggerContainer.light}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            variants={staggerContainer.moderate}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: false, amount: 0.2 }}
           >
-            {testimonials.map((testimonial, index) => (
-              <motion.div key={index} variants={fadeUp.light}>
-                <Card
-                  className="border-l-4 border-l-red hover:shadow-xl transition-shadow"
-                >
-                  <CardHeader>
-                    <svg
-                      className="w-12 h-12 text-red opacity-50"
-                      fill="currentColor"
+            {/* Testimonial Card 1 - Leadership & Calmness */}
+            <motion.div variants={fadeUp.moderate}>
+              <Card 
+                className="border-l-4 border-l-red border-t-4 border-t-red shadow-lg h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                role="article"
+              >
+                <CardContent className="p-6">
+                  <div className="mb-4">
+                    <motion.svg 
+                      className="w-12 h-12 text-red/30 mb-4" 
+                      fill="currentColor" 
                       viewBox="0 0 24 24"
+                      aria-label="testimonial quote mark"
+                      animate={{ scale: [1, 1.05, 1] }}
+                      transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
                     >
                       <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.984zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                    </svg>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-lg text-gray-700 leading-relaxed mb-6 italic">
-                      "{testimonial.quote}"
-                    </p>
-                    <div className="pt-4 border-t">
-                      <p className="font-semibold text-navy">{testimonial.author}</p>
-                      <p className="text-gray-600">{testimonial.company}</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+                    </motion.svg>
+                  </div>
+                  <blockquote className="text-gray-700 text-base md:text-lg leading-relaxed mb-6 italic">
+                    "David consistently demonstrates composure under pressure, maintaining clarity and control even during large-scale incidents."
+                  </blockquote>
+                  <div className="border-t pt-4">
+                    <p className="font-semibold text-navy">Name</p>
+                    <p className="text-gray-600">Title</p>
+                    <p className="text-gray-500 text-sm">Organization</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Testimonial Card 2 - Counter-Terrorism & Preparedness */}
+            <motion.div variants={fadeUp.moderate}>
+              <Card 
+                className="border-l-4 border-l-red border-t-4 border-t-red shadow-lg h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                role="article"
+              >
+                <CardContent className="p-6">
+                  <div className="mb-4">
+                    <motion.svg 
+                      className="w-12 h-12 text-red/30 mb-4" 
+                      fill="currentColor" 
+                      viewBox="0 0 24 24"
+                      aria-label="testimonial quote mark"
+                      animate={{ scale: [1, 1.05, 1] }}
+                      transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+                    >
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.984zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                    </motion.svg>
+                  </div>
+                  <blockquote className="text-gray-700 text-base md:text-lg leading-relaxed mb-6 italic">
+                    "His ability to integrate counter-terrorism principles into event and campus operations ensures compliance and readiness at all times."
+                  </blockquote>
+                  <div className="border-t pt-4">
+                    <p className="font-semibold text-navy">Name</p>
+                    <p className="text-gray-600">Title</p>
+                    <p className="text-gray-500 text-sm">Organization</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Testimonial Card 3 - Mentoring & Team Development */}
+            <motion.div variants={fadeUp.moderate}>
+              <Card 
+                className="border-l-4 border-l-red border-t-4 border-t-red shadow-lg h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                role="article"
+              >
+                <CardContent className="p-6">
+                  <div className="mb-4">
+                    <motion.svg 
+                      className="w-12 h-12 text-red/30 mb-4" 
+                      fill="currentColor" 
+                      viewBox="0 0 24 24"
+                      aria-label="testimonial quote mark"
+                      animate={{ scale: [1, 1.05, 1] }}
+                      transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+                    >
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.984zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                    </motion.svg>
+                  </div>
+                  <blockquote className="text-gray-700 text-base md:text-lg leading-relaxed mb-6 italic">
+                    "David builds confidence within his teams through coaching, empathy, and clear communication."
+                  </blockquote>
+                  <div className="border-t pt-4">
+                    <p className="font-semibold text-navy">Name</p>
+                    <p className="text-gray-600">Title</p>
+                    <p className="text-gray-500 text-sm">Organization</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Testimonial Card 4 - Stakeholder Engagement */}
+            <motion.div variants={fadeUp.moderate}>
+              <Card 
+                className="border-l-4 border-l-red border-t-4 border-t-red shadow-lg h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                role="article"
+              >
+                <CardContent className="p-6">
+                  <div className="mb-4">
+                    <motion.svg 
+                      className="w-12 h-12 text-red/30 mb-4" 
+                      fill="currentColor" 
+                      viewBox="0 0 24 24"
+                      aria-label="testimonial quote mark"
+                      animate={{ scale: [1, 1.05, 1] }}
+                      transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+                    >
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.984zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                    </motion.svg>
+                  </div>
+                  <blockquote className="text-gray-700 text-base md:text-lg leading-relaxed mb-6 italic">
+                    "He works collaboratively with local authorities, emergency services, and venue partners to deliver unified, secure operations."
+                  </blockquote>
+                  <div className="border-t pt-4">
+                    <p className="font-semibold text-navy">Name</p>
+                    <p className="text-gray-600">Title</p>
+                    <p className="text-gray-500 text-sm">Organization</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Testimonial Card 5 - Innovation & Improvement */}
+            <motion.div variants={fadeUp.moderate}>
+              <Card 
+                className="border-l-4 border-l-red border-t-4 border-t-red shadow-lg h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                role="article"
+              >
+                <CardContent className="p-6">
+                  <div className="mb-4">
+                    <motion.svg 
+                      className="w-12 h-12 text-red/30 mb-4" 
+                      fill="currentColor" 
+                      viewBox="0 0 24 24"
+                      aria-label="testimonial quote mark"
+                      animate={{ scale: [1, 1.05, 1] }}
+                      transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+                    >
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.984zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                    </motion.svg>
+                  </div>
+                  <blockquote className="text-gray-700 text-base md:text-lg leading-relaxed mb-6 italic">
+                    "David's data-driven approach to operational planning, including the design of an AI-assisted management platform, represents the future of crowd and campus safety."
+                  </blockquote>
+                  <div className="border-t pt-4">
+                    <p className="font-semibold text-navy">Name</p>
+                    <p className="text-gray-600">Title</p>
+                    <p className="text-gray-500 text-sm">Organization</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
-      <Separator />
-
-      {/* Organization Logos */}
-      <section className="py-16 bg-lightgrey">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.h2 
-            className="font-heading font-bold text-4xl text-navy text-center mb-12"
+      {/* Note Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            variants={fadeUp.light}
+            variants={fadeUp.moderate}
+            className="bg-lightgrey p-6 rounded-lg border-l-4 border-red"
           >
-            Trusted Partners
-          </motion.h2>
-          <motion.div 
-            className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center"
-            variants={staggerContainer.light}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            {organizations.map((org, index) => (
-              <motion.div key={index} variants={fadeUp.light}>
-                <Card
-                  className="flex items-center justify-center hover:shadow-lg transition-shadow"
-                >
-                  <CardContent className="text-center pt-6">
-                    <div className="w-32 h-16 bg-gray-200 rounded flex items-center justify-center mb-2">
-                      <img
-                        src={org.logo}
-                        alt={org.name}
-                        className="max-w-full max-h-full object-contain"
-                      />
-                    </div>
-                    <p className="text-sm text-gray-600 font-semibold">{org.name}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+            <p className="text-gray-700 leading-relaxed mb-4">
+              <strong className="text-navy">Note:</strong> Formal written references and detailed testimonials are available upon request. This page will be updated with verified endorsements following upcoming professional interviews and collaborations. For immediate reference verification or additional details, please contact me directly.
+            </p>
+            <div className="flex justify-center mt-6">
+              <Button 
+                href="/contact" 
+                variant="secondary" 
+                className="border-red text-red hover:bg-red hover:text-white"
+              >
+                Request Professional Reference
+              </Button>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -151,20 +257,24 @@ export default function Testimonials() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={fadeUp.light}
+          variants={fadeUp.moderate}
         >
           <h2 className="font-heading font-bold text-3xl mb-6">
-            Ready to Work Together?
+            Interested in Learning More?
           </h2>
           <p className="text-lg mb-8 leading-relaxed">
-            Let's collaborate to create safer, more efficient, and people-focused events.
+            I'd be delighted to discuss my experience, provide references, or answer questions regarding my approach to safety leadership, counter-terrorism preparedness, and team development.
           </p>
-          <Button href="/contact" variant="secondary" className="bg-white text-navy hover:bg-gray-100">
-            Get in Touch
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button href="/contact" variant="secondary" className="bg-white text-navy hover:bg-gray-100">
+              Contact Me
+            </Button>
+            <Button href="/experience" variant="secondary" className="bg-white text-navy hover:bg-gray-100">
+              View Experience
+            </Button>
+          </div>
         </motion.div>
       </section>
     </div>
   )
 }
-

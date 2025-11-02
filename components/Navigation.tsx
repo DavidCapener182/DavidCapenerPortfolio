@@ -12,7 +12,7 @@ export default function Navigation() {
     { href: '/portfolio', label: 'Portfolio' },
     { href: '/experience', label: 'Experience' },
     { href: '/testimonials', label: 'Testimonials' },
-    { href: '/contact', label: 'Contact' },
+    { href: '/contact', label: 'Why Hire Me' },
   ]
 
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -29,7 +29,7 @@ export default function Navigation() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-800 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link href="/" className="flex items-center space-x-2 text-gray-200 font-heading font-bold text-lg tracking-wider hover:text-white transition-colors duration-200">
+          <Link href="/" className="flex items-center space-x-2 text-gray-200 font-heading font-bold text-base sm:text-lg tracking-wider hover:text-white transition-colors duration-200">
             <div className="w-3 h-3 bg-[#d4a574] transform rotate-45"></div>
             <span className="uppercase">David Capener</span>
           </Link>
@@ -50,9 +50,10 @@ export default function Navigation() {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden text-gray-300 focus:outline-none hover:text-white"
+            className="md:hidden text-gray-300 focus:outline-none hover:text-white p-2 -mr-2"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
+            aria-expanded={isOpen}
           >
             <svg
               className="h-6 w-6"
@@ -74,7 +75,7 @@ export default function Navigation() {
 
           {/* Mobile Navigation */}
           {isOpen && (
-            <div className="md:hidden pb-4 bg-gray-800">
+            <div className="md:hidden pb-4 bg-gray-800 border-t border-gray-700 mt-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -83,7 +84,7 @@ export default function Navigation() {
                     handleSmoothScroll(e, link.href)
                     setIsOpen(false)
                   }}
-                  className="block py-2 text-gray-300 hover:text-white transition-colors duration-200 uppercase text-sm tracking-wider"
+                  className="block py-3 px-2 text-gray-300 hover:text-white hover:bg-gray-700 transition-colors duration-200 uppercase text-sm tracking-wider"
                 >
                   {link.label}
                 </Link>

@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { Montserrat, Open_Sans } from 'next/font/google'
 import '../styles/globals.css'
 import Navigation from '@/components/Navigation'
-import Footer from '@/components/Footer'
 import ScrollProgress from '@/components/ScrollProgress'
 
 const montserrat = Montserrat({
@@ -39,7 +38,6 @@ export default function RootLayout({
         <Navigation />
         <ScrollProgress />
         <main>{children}</main>
-        <Footer />
       </body>
     </html>
   )

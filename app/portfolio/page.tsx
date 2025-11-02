@@ -3,102 +3,176 @@
 import HeroBanner from '@/components/HeroBanner'
 import CaseStudy from '@/components/CaseStudy'
 import Button from '@/components/Button'
-import { Card, CardContent } from '@/components/ui/card'
-import { motion } from 'framer-motion'
+import { Card } from '@/components/ui/card'
+import { motion, useScroll } from 'framer-motion'
 import { fadeUp, staggerContainer, zoomIn } from '@/lib/animationVariants'
+import { useRef } from 'react'
 
 export default function Portfolio() {
+  const containerRef = useRef<HTMLDivElement>(null)
+  
+  const { scrollYProgress: pageScrollProgress } = useScroll({
+    target: containerRef,
+    offset: ['start start', 'end end']
+  })
+
   return (
-    <div className="pt-16">
+    <div ref={containerRef} className="pt-16 relative">
+      {/* Vertical Progress Indicator */}
+      <div className="hidden md:block fixed right-0 top-16 bottom-0 w-1 bg-gray-200 z-30">
+        <motion.div
+          className="w-full bg-red origin-top"
+          style={{ scaleY: pageScrollProgress, height: '100%' }}
+        />
+      </div>
       {/* Hero Banner */}
-      <HeroBanner
-        title="Case Studies & Project Highlights"
-        description="A selection of key projects demonstrating my leadership, operational strategy, and commitment to safety across complex, high-profile environments."
-        imageSrc="/images/portfolio-hero.jpg"
-      />
-
-      {/* Case Studies */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Case Study 1 - Eurovision */}
-          <CaseStudy
-            title="Eurovision 2023, Liverpool"
-            role="Venue Security Manager | M&S Bank Arena"
-            client="BBC / Venue Management"
-            duration="Four months planning, one month on-site"
-            description="In 2023, I led security operations for the Eurovision Song Contest hosted at Liverpool's M&S Bank Arena. My responsibilities included strategic planning, risk management, and operational coordination across build, show, and de-rig phases. I managed 75 security personnel over a one-month deployment and liaised with BBC and venue representatives to maintain compliance and safety throughout."
-            keyOutcomes={[
-              'Successful delivery of eight live show days without incident',
-              'Streamlined entry and exit protocols for staff and talent',
-              'Developed integrated contingency planning with local emergency services',
-            ]}
-            imageSrc="/images/eurovision-arena.jpg"
-            imageAlt="Eurovision 2023 at M&S Bank Arena"
-          />
-
-          {/* Case Study 2 - Creamfields */}
-          <CaseStudy
-            title="Creamfields Festival"
-            role="Security Consultant & Operational Lead"
-            client="Live Nation (via H&A Protection Services)"
-            duration="2013 – Present"
-            description="Over the past decade, I have provided strategic oversight and on-the-ground management for Creamfields, one of the UK's largest electronic music festivals. My duties have included managing entry and exit gate operations, leading on-site coordination of security teams, overseeing multiple stages and performance zones, and managing the security control room and incident response."
-            keyOutcomes={[
-              'Improved ingress and egress flow, reducing crowd congestion incidents',
-              'Enhanced coordination between site teams and medical support',
-              'Contributed to long-term operational safety planning for future events',
-            ]}
-            imageSrc="/images/creamfields-festival.jpg"
-            imageAlt="Creamfields Festival"
-          />
-
-          {/* Case Study 3 - Rebellion Festival */}
-          <CaseStudy
-            title="Rebellion Festival, Blackpool"
-            role="Site Security Manager | Crisis Lead"
-            client="Rebellion Festival Organisers"
-            description="During the Rebellion Festival, external riots involving over 1,000 people developed in close proximity to the venue. With over 10,000 attendees inside, I coordinated an immediate lockdown procedure to secure the site."
-            keyOutcomes={[
-              'Implemented rapid lockdown and communication plan',
-              'Maintained crowd calm and compliance during a critical incident',
-              'Coordinated with police and emergency services to ensure site integrity',
-              'The lockdown was executed with no casualties and minimal disruption to the event schedule, earning commendation from event organisers for decisive and calm leadership',
-            ]}
-            imageSrc="/images/rebellion-festival.jpg"
-            imageAlt="Rebellion Festival, Blackpool"
-          />
-
-          {/* Case Study 4 - AI Platform */}
-          <CaseStudy
-            title="AI-Integrated Event Management Platform"
-            role="Creator & Developer"
-            description="I am the creator of an innovative event management platform designed to integrate Martyn's Law principles into a dynamic, AI-driven operational system. This software provides real-time guidance to control rooms during live events—whether concerts, festivals, or sports matches—by generating data-led prompts, risk assessments, and escalation protocols."
-            keyOutcomes={[
-              'AI-assisted decision support for incident management',
-              'Integration with existing venue control systems',
-              "Compliance mapping for Martyn's Law and other safety frameworks",
-              'Projected Launch: 2026 (Post-Testing Phase)',
-            ]}
-            imageSrc="/images/ai-platform-mockup.png"
-            imageAlt="AI Event Management Platform"
+      <section className="relative min-h-screen md:h-screen snap-start">
+        <div className="md:sticky md:top-0 h-screen">
+          <HeroBanner
+            title="Case Studies & Project Highlights"
+            description="A curated selection of projects showcasing leadership in crowd management, operational strategy, and safety innovation — from high-profile festivals to public and educational environments."
+            imageSrc="/images/portfolio-hero.jpg"
           />
         </div>
       </section>
 
+      {/* Case Study 1 - Eurovision */}
+      <section className="relative min-h-screen md:h-screen snap-start">
+        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-white pt-20 md:pt-0">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+            <CaseStudy
+              title="Eurovision 2023, Liverpool"
+              role="Venue Security Manager | M&S Bank Arena"
+              client="BBC / Venue Management"
+              duration="Four months planning, one month on-site"
+              description="In 2023, I led full venue security operations for the Eurovision Song Contest hosted at Liverpool's M&S Bank Arena — one of the city's most complex live broadcast events. Responsibilities included strategic risk planning, personnel coordination, and integrated emergency response management. I worked collaboratively with BBC production, venue management, and local authorities to deliver a safe, compliant, and seamless guest experience across eight show days."
+              keyOutcomes={[
+                'Delivered eight live international broadcasts without incident',
+                'Achieved 100% compliance with venue and broadcast security standards',
+                'Developed cross-agency contingency planning with emergency services',
+              ]}
+              imageSrc="/images/eurovision-arena.jpg"
+              imageAlt="Eurovision 2023 at M&S Bank Arena"
+            />
+            <motion.div
+              animate={{ y: [0, 6, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5 }}
+              className="text-center text-sm text-red-500 mt-6"
+            >
+              ↓ Read next project
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Case Study 2 - Creamfields */}
+      <section className="relative min-h-screen md:h-screen snap-start">
+        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-gray-50 pt-20 md:pt-0">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+            <CaseStudy
+              title="Creamfields Festival"
+              role="Security Consultant & Operational Lead"
+              client="Live Nation (via H&A Protection Services)"
+              duration="2013 – Present"
+              description="Over the past decade, I've provided strategic oversight and on-the-ground management for Creamfields — one of the UK's largest electronic music festivals. My role covers operational planning, control room command, and coordination between security, medical, and production teams. This long-term engagement demonstrates my ability to manage evolving risk profiles, sustain staff motivation, and maintain consistent safety standards across changing environments."
+              keyOutcomes={[
+                'Reduced ingress and egress congestion incidents through redesigned flow management',
+                'Strengthened coordination between medical, welfare, and site teams',
+                "Supported Live Nation's long-term safety improvement framework",
+              ]}
+              imageSrc="/images/creamfields-festival.jpg"
+              imageAlt="Creamfields Festival"
+            />
+            <motion.div
+              animate={{ y: [0, 6, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5 }}
+              className="text-center text-sm text-red-500 mt-6"
+            >
+              ↓ Read next project
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Case Study 3 - Rebellion Festival */}
+      <section className="relative min-h-screen md:h-screen snap-start">
+        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-white pt-20 md:pt-0">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+            <CaseStudy
+              title="Rebellion Festival, Blackpool"
+              role="Site Security Manager | Crisis Lead"
+              client="Rebellion Festival Organisers"
+              description="During Rebellion Festival, riots involving over 1,000 people occurred in close proximity to the venue. With more than 10,000 attendees inside, I led the lockdown procedure to secure the site, protect attendees, and coordinate communications with police and emergency services. This incident demonstrates my ability to stay calm under extreme pressure, applying measured leadership and crisis management to protect life and property."
+              keyOutcomes={[
+                'Implemented emergency lockdown and communication plan',
+                'Maintained operational calm and compliance under duress',
+                'Coordinated real-time response with law enforcement and public safety teams',
+              ]}
+              imageSrc="/images/rebellion-festival.jpg"
+              imageAlt="Rebellion Festival, Blackpool"
+            />
+            <motion.div
+              animate={{ y: [0, 6, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5 }}
+              className="text-center text-sm text-red-500 mt-6"
+            >
+              ↓ Read next project
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Case Study 4 - AI Platform */}
+      <section className="relative min-h-screen md:h-screen snap-start">
+        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-gray-50 pt-20 md:pt-0">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+            <CaseStudy
+              title="AI-Integrated Event Management Platform"
+              role="Creator & Developer"
+              description="I designed and developed an AI-driven event management platform that integrates Martyn's Law principles into a dynamic decision-support system. The platform provides real-time risk analysis, prompts control rooms through predefined scenarios, and supports continuous monitoring across festivals, stadiums, and campus environments. The system is currently in the testing phase and scheduled for deployment in 2026."
+              keyOutcomes={[
+                'Real-time incident decision support',
+                "Martyn's Law compliance mapping and automated escalation prompts",
+                'Integration with existing venue and campus control systems',
+              ]}
+              imageSrc="/images/ai-platform-mockup.png"
+              imageAlt="AI Event Management Platform"
+            />
+            <motion.div
+              animate={{ y: [0, 6, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5 }}
+              className="text-center text-sm text-red-500 mt-6"
+            >
+              ↓ Read next project
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Gallery Section */}
-      <section className="py-16 bg-lightgrey">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative min-h-screen md:h-screen snap-start">
+        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-lightgrey pt-20 md:pt-0">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <motion.h2 
-            className="font-heading font-bold text-4xl text-navy text-center mb-12"
+            className="font-heading font-bold text-3xl sm:text-4xl text-navy text-center mb-4"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeUp.moderate}
           >
-            Gallery
+            Operational Gallery
           </motion.h2>
+          <motion.p 
+            className="text-center text-gray-600 mb-8 sm:mb-12 text-base sm:text-lg"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeUp.moderate}
+          >
+            A visual overview of live operations, control room management, and leadership in action.
+          </motion.p>
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6"
             variants={staggerContainer.moderate}
             initial="hidden"
             whileInView="visible"
@@ -106,7 +180,7 @@ export default function Portfolio() {
           >
             {/* Placeholder gallery images */}
             <motion.div variants={zoomIn.moderate}>
-              <Card className="overflow-hidden shadow-lg">
+              <Card className="overflow-hidden shadow-lg group cursor-pointer">
                 <motion.div 
                   className="relative h-64 bg-gray-300 overflow-hidden"
                   whileHover={{ scale: 1.05 }}
@@ -117,14 +191,14 @@ export default function Portfolio() {
                     alt="Event gallery"
                     className="w-full h-full object-cover"
                   />
+                  <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <p className="text-white text-sm font-semibold text-center px-4">Major Event Operations — Large-scale live environment management</p>
+                  </div>
                 </motion.div>
-                <CardContent className="p-4">
-                  <p className="text-sm text-gray-600">Major Event Operations</p>
-                </CardContent>
               </Card>
             </motion.div>
             <motion.div variants={zoomIn.moderate}>
-              <Card className="overflow-hidden shadow-lg">
+              <Card className="overflow-hidden shadow-lg group cursor-pointer">
                 <motion.div 
                   className="relative h-64 bg-gray-300 overflow-hidden"
                   whileHover={{ scale: 1.05 }}
@@ -135,14 +209,14 @@ export default function Portfolio() {
                     alt="Event gallery"
                     className="w-full h-full object-cover"
                   />
+                  <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <p className="text-white text-sm font-semibold text-center px-4">Team Leadership — Briefings, coordination, and staff welfare engagement</p>
+                  </div>
                 </motion.div>
-                <CardContent className="p-4">
-                  <p className="text-sm text-gray-600">Team Leadership</p>
-                </CardContent>
               </Card>
             </motion.div>
             <motion.div variants={zoomIn.moderate}>
-              <Card className="overflow-hidden shadow-lg">
+              <Card className="overflow-hidden shadow-lg group cursor-pointer">
                 <motion.div 
                   className="relative h-64 bg-gray-300 overflow-hidden"
                   whileHover={{ scale: 1.05 }}
@@ -153,33 +227,38 @@ export default function Portfolio() {
                     alt="Event gallery"
                     className="w-full h-full object-cover"
                   />
+                  <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <p className="text-white text-sm font-semibold text-center px-4">Control Room Operations — Real-time response and monitoring excellence</p>
+                  </div>
                 </motion.div>
-                <CardContent className="p-4">
-                  <p className="text-sm text-gray-600">Control Room Operations</p>
-                </CardContent>
               </Card>
             </motion.div>
           </motion.div>
         </div>
+      </div>
       </section>
 
       {/* Closing Statement */}
-      <section className="py-16 bg-navy text-white">
-        <motion.div 
-          className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+      <section className="relative min-h-screen md:h-screen snap-start">
+        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-navy text-white pt-20 md:pt-0">
+          <motion.div 
+            className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-12 sm:py-16"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp.moderate}
         >
-          <h2 className="font-heading font-bold text-3xl mb-6">
+          <h2 className="font-heading font-bold text-2xl sm:text-3xl mb-6">
             Commitment to Excellence
           </h2>
-          <p className="text-lg mb-4 leading-relaxed">
-            Every project I undertake is driven by one core objective: to ensure that every individual—staff, performer, or spectator—experiences safety, security, and confidence.
+          <p className="text-base sm:text-lg mb-4 leading-relaxed">
+            Every project I undertake is built on one core principle: protecting people through preparation, precision, and empathy.
           </p>
-          <p className="text-lg mb-8 leading-relaxed">
-            My work combines strategic foresight with operational experience, ensuring that every event, no matter how complex, runs safely and efficiently.
+          <p className="text-base sm:text-lg mb-4 leading-relaxed">
+            My leadership is rooted in inclusion, respect, and collaboration — ensuring that every team member, student, or spectator feels safe, supported, and confident in their environment.
+          </p>
+          <p className="text-base sm:text-lg mb-8 leading-relaxed">
+            I combine operational foresight with practical experience to ensure that every event, no matter how complex, runs safely, efficiently, and with integrity.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button href="/experience" variant="secondary" className="bg-white text-navy hover:bg-gray-100">
@@ -190,6 +269,7 @@ export default function Portfolio() {
             </Button>
           </div>
         </motion.div>
+      </div>
       </section>
     </div>
   )
