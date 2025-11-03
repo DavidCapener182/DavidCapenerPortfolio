@@ -65,9 +65,38 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Case Study 2 - Creamfields */}
+      {/* Case Study 2 - Liverpool Parade */}
       <section className="relative min-h-screen md:h-screen snap-start">
         <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-gray-50 pt-20 md:pt-0">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+            <CaseStudy
+              title="2019 LFC European Cup Parade, Liverpool"
+              role="Head of Security Operations"
+              client="Liverpool Football Club / Liverpool City Council"
+              duration="2019"
+              description="I led comprehensive security operations for the 2019 Liverpool FC European Cup victory parade, one of the largest public celebrations in Liverpool's history. Working in partnership with Liverpool Football Club and Liverpool City Council, I coordinated security teams across the entire city centre parade route to ensure the safe management of hundreds of thousands of celebrants. This operation required extensive multi-agency coordination, crowd flow management, and real-time risk assessment across a dynamic, city-wide environment."
+              keyOutcomes={[
+                'Successfully managed security for hundreds of thousands of parade attendees across city centre route',
+                'Coordinated multi-agency response with LFC, Liverpool City Council, and emergency services',
+                'Delivered safe celebration event with zero major incidents despite unprecedented crowd size',
+              ]}
+              imageSrc="/images/liverpool-parade.jpg"
+              imageAlt="2019 LFC European Cup Parade, Liverpool"
+            />
+            <motion.div
+              animate={{ y: [0, 6, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5 }}
+              className="text-center text-sm text-red-500 mt-6"
+            >
+              ↓ Read next project
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Case Study 3 - Creamfields */}
+      <section className="relative min-h-screen md:h-screen snap-start">
+        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-white pt-20 md:pt-0">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
             <CaseStudy
               title="Creamfields Festival"
@@ -94,9 +123,9 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Case Study 3 - Rebellion Festival */}
+      {/* Case Study 4 - Rebellion Festival */}
       <section className="relative min-h-screen md:h-screen snap-start">
-        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-white pt-20 md:pt-0">
+        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-gray-50 pt-20 md:pt-0">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
             <CaseStudy
               title="Rebellion Festival, Blackpool"
@@ -122,9 +151,9 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Case Study 4 - AI Platform */}
+      {/* Case Study 5 - AI Platform */}
       <section className="relative min-h-screen md:h-screen snap-start">
-        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-gray-50 pt-20 md:pt-0">
+        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-white pt-20 md:pt-0">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
             <CaseStudy
               title="AI-Integrated Event Management Platform"
@@ -223,12 +252,12 @@ export default function Portfolio() {
                   transition={{ duration: 0.3 }}
                 >
                   <img
-                    src="/images/gallery-3.jpg"
+                    src="/images/gallery-4.jpg"
                     alt="Event gallery"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <p className="text-white text-sm font-semibold text-center px-4">Control Room Operations — Real-time response and monitoring excellence</p>
+                    <p className="text-white text-sm font-semibold text-center px-4">Leading Parades — Large-scale public event management and crowd safety</p>
                   </div>
                 </motion.div>
               </Card>

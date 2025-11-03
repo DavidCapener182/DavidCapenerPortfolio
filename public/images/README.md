@@ -4,43 +4,55 @@ Drop all images directly into this folder: `/public/images/`
 
 ## 📸 Complete Image List
 
-### Required Images (9 total)
+### Required Images (12 total)
 
 1. **eurovision-arena.jpg**
    - Size: 1200x800px (3:2 aspect ratio)
    - Used in: Homepage achievement card, Portfolio page case study
 
-2. **creamfields-festival.jpg**
+2. **bgt-blackpool.jpg**
+   - Size: 1200x800px (3:2 aspect ratio)
+   - Used in: Homepage achievement card - "Britain's Got Talent, Blackpool"
+
+3. **liverpool-parade.jpg**
+   - Size: 1200x800px (3:2 aspect ratio)
+   - Used in: Homepage achievement card - "2019 LFC European Cup Parade, Liverpool"
+
+4. **creamfields-festival.jpg**
    - Size: 1200x800px (3:2 aspect ratio)
    - Used in: Homepage achievement card, Portfolio page case study
 
-3. **rebellion-festival.jpg**
+5. **rebellion-festival.jpg**
    - Size: 1200x800px (3:2 aspect ratio)
    - Used in: Homepage achievement card, Portfolio page case study
 
-4. **ai-platform-mockup.png**
+6. **ai-platform-mockup.png**
    - Size: 1200x800px (3:2 aspect ratio)
    - Used in: Homepage achievement card, Portfolio page case study
 
-5. **portfolio-hero.jpg**
+7. **portfolio-hero.jpg**
    - Size: 1920x1080px (16:9 aspect ratio)
    - Used in: Portfolio page hero banner
 
-6. **gallery-1.jpg**
+8. **gallery-1.jpg**
    - Size: 1200x800px (3:2 aspect ratio)
    - Used in: Portfolio page gallery - "Major Event Operations"
 
-7. **gallery-2.jpg**
+9. **gallery-2.jpg**
    - Size: 1200x800px (3:2 aspect ratio)
    - Used in: Portfolio page gallery - "Team Leadership"
 
-8. **gallery-3.jpg**
-   - Size: 1200x800px (3:2 aspect ratio)
-   - Used in: Portfolio page gallery - "Control Room Operations"
+10. **gallery-3.jpg**
+    - Size: 1200x800px (3:2 aspect ratio)
+    - Used in: Portfolio page gallery - "Control Room Operations"
 
-9. **headshot.jpg**
-   - Size: 800x800px (1:1 square)
-   - Used in: About page professional photo
+11. **gallery-4.jpg**
+    - Size: 1200x800px (3:2 aspect ratio)
+    - Used in: Portfolio page gallery - "Leading Parades"
+
+12. **headshot.jpg**
+    - Size: 800x800px (1:1 square)
+    - Used in: About page professional photo
 
 ## 📋 Quick Checklist
 
@@ -48,6 +60,8 @@ Copy and paste these filenames when adding your images:
 
 ```
 eurovision-arena.jpg
+bgt-blackpool.jpg
+liverpool-parade.jpg
 creamfields-festival.jpg
 rebellion-festival.jpg
 ai-platform-mockup.png
@@ -55,6 +69,7 @@ portfolio-hero.jpg
 gallery-1.jpg
 gallery-2.jpg
 gallery-3.jpg
+gallery-4.jpg
 headshot.jpg
 ```
 

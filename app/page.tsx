@@ -137,13 +137,27 @@ export default function Home() {
             </h2>
             <div className="w-24 h-1 bg-red mx-auto"></div>
           </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 items-stretch">
             <AchievementCard
               title="Eurovision 2023, Liverpool"
               subtitle="Full venue management and live broadcast security — delivered with zero major incidents."
               description="Delivered full venue security management at the M&S Bank Arena, coordinating 75 staff across a one-month build and eight live show days in partnership with the BBC and arena management."
               imageSrc="/images/eurovision-arena.jpg"
               iconType="eurovision"
+            />
+            <AchievementCard
+              title="Britain's Got Talent, Blackpool"
+              subtitle="Head of Security for ITV's flagship talent show at Blackpool Winter Gardens."
+              description="Led overall venue security operations for ITV's Britain's Got Talent at Blackpool Winter Gardens, managing venue security, talent security teams, and judges security teams to ensure safe and seamless production operations."
+              imageSrc="/images/bgt-blackpool.jpg"
+              iconType="bgt"
+            />
+            <AchievementCard
+              title="2019 LFC European Cup Parade, Liverpool"
+              subtitle="Led security operations for Liverpool's historic victory parade with LFC and Liverpool City Council."
+              description="Led comprehensive security operations for the 2019 Liverpool FC European Cup victory parade, coordinating with Liverpool Football Club and Liverpool City Council to ensure safe management of hundreds of thousands of celebrants across the city centre route."
+              imageSrc="/images/liverpool-parade.jpg"
+              iconType="parade"
             />
             <AchievementCard
               title="Creamfields Festival (2013–Present)"

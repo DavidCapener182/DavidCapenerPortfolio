@@ -1,6 +1,6 @@
 'use client'
 
-import { ShieldCheckIcon, MusicalNoteIcon, ExclamationTriangleIcon, CpuChipIcon } from '@heroicons/react/24/solid'
+import { ShieldCheckIcon, MusicalNoteIcon, ExclamationTriangleIcon, CpuChipIcon, TvIcon, TrophyIcon } from '@heroicons/react/24/solid'
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
 import { Badge } from './ui/badge'
 import { cn } from '@/lib/utils'
@@ -11,7 +11,7 @@ interface AchievementCardProps {
   subtitle?: string
   description: string
   imageSrc?: string
-  iconType?: 'eurovision' | 'creamfields' | 'rebellion' | 'ai'
+  iconType?: 'eurovision' | 'creamfields' | 'rebellion' | 'ai' | 'bgt' | 'parade'
 }
 
 export default function AchievementCard({
@@ -31,6 +31,10 @@ export default function AchievementCard({
         return <ShieldCheckIcon className="w-12 h-12 sm:w-16 sm:h-16 text-red" />
       case 'ai':
         return <CpuChipIcon className="w-12 h-12 sm:w-16 sm:h-16 text-red" />
+      case 'bgt':
+        return <TvIcon className="w-12 h-12 sm:w-16 sm:h-16 text-red" />
+      case 'parade':
+        return <TrophyIcon className="w-12 h-12 sm:w-16 sm:h-16 text-red" />
       default:
         return <ShieldCheckIcon className="w-12 h-12 sm:w-16 sm:h-16 text-red" />
     }
