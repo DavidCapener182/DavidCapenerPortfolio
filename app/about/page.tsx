@@ -39,9 +39,9 @@ export default function About() {
         </div>
       </div>
       {/* Header Section */}
-      <section className="relative min-h-screen md:h-screen snap-start">
-        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-lightgrey pt-20 md:pt-0">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <section className="relative min-h-screen md:h-screen snap-start scroll-mt-24">
+        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-lightgrey">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
           <motion.div 
             className="text-center mb-8 sm:mb-12"
             initial="hidden"
@@ -79,9 +79,9 @@ export default function About() {
       </section>
 
       {/* Professional Story */}
-      <section className="relative min-h-screen md:h-screen snap-start">
-        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-white pt-20 md:pt-0">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <section className="relative min-h-screen md:h-screen snap-start scroll-mt-24">
+        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-white">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -108,9 +108,9 @@ export default function About() {
       </section>
 
       {/* Professional Focus & Values */}
-      <section className="relative min-h-screen md:h-screen snap-start">
-        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-lightgrey pt-20 md:pt-0">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <section className="relative snap-start scroll-mt-24">
+        <div className="min-h-screen flex flex-col justify-start bg-lightgrey">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -128,7 +128,7 @@ export default function About() {
             </p>
           </motion.div>
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6"
             variants={staggerContainer.moderate}
             initial="hidden"
             whileInView="visible"
@@ -136,8 +136,8 @@ export default function About() {
           >
             <motion.div variants={slideLeft.moderate}>
               <Card className="border-l-4 border-l-red shadow-md">
-                <CardContent className="p-6">
-                  <h3 className="font-heading font-semibold text-lg sm:text-xl text-navy mb-3">
+                <CardContent className="p-4 sm:p-5">
+                  <h3 className="font-heading font-semibold text-lg sm:text-xl text-navy mb-2">
                     1. Preparation & Planning
                   </h3>
                   <p className="text-sm sm:text-base text-gray-700">
@@ -148,8 +148,8 @@ export default function About() {
             </motion.div>
             <motion.div variants={fadeUp.moderate}>
               <Card className="border-l-4 border-l-red shadow-md">
-                <CardContent className="p-6">
-                  <h3 className="font-heading font-semibold text-lg sm:text-xl text-navy mb-3">
+                <CardContent className="p-4 sm:p-5">
+                  <h3 className="font-heading font-semibold text-lg sm:text-xl text-navy mb-2">
                     2. Leadership & Mentoring
                   </h3>
                   <p className="text-sm sm:text-base text-gray-700">
@@ -160,8 +160,8 @@ export default function About() {
             </motion.div>
             <motion.div variants={slideRight.moderate}>
               <Card className="border-l-4 border-l-red shadow-md">
-                <CardContent className="p-6">
-                  <h3 className="font-heading font-semibold text-lg sm:text-xl text-navy mb-3">
+                <CardContent className="p-4 sm:p-5">
+                  <h3 className="font-heading font-semibold text-lg sm:text-xl text-navy mb-2">
                     3. Communication & Collaboration
                   </h3>
                   <p className="text-sm sm:text-base text-gray-700">
@@ -172,8 +172,8 @@ export default function About() {
             </motion.div>
             <motion.div variants={fadeUp.moderate}>
               <Card className="border-l-4 border-l-red shadow-md">
-                <CardContent className="p-6">
-                  <h3 className="font-heading font-semibold text-lg sm:text-xl text-navy mb-3">
+                <CardContent className="p-4 sm:p-5">
+                  <h3 className="font-heading font-semibold text-lg sm:text-xl text-navy mb-2">
                     4. Resilience & Wellbeing
                   </h3>
                   <p className="text-sm sm:text-base text-gray-700">
@@ -197,9 +197,9 @@ export default function About() {
       </section>
 
       {/* Strengths */}
-      <section className="relative min-h-screen md:h-screen snap-start">
-        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-white pt-20 md:pt-0">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <section className="relative snap-start scroll-mt-24">
+        <div className="min-h-screen flex flex-col justify-start bg-white">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -277,9 +277,9 @@ export default function About() {
       </section>
 
       {/* Professional Development Area */}
-      <section className="relative min-h-screen md:h-screen snap-start">
-        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-lightgrey pt-20 md:pt-0">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <section className="relative min-h-screen md:h-screen snap-start scroll-mt-24">
+        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-lightgrey">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -298,9 +298,9 @@ export default function About() {
       </section>
 
       {/* Commitment to Inclusion */}
-      <section className="relative min-h-screen md:h-screen snap-start">
-        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-white pt-20 md:pt-0">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <section className="relative min-h-screen md:h-screen snap-start scroll-mt-24">
+        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-white">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -319,8 +319,8 @@ export default function About() {
       </section>
 
       {/* Personal Philosophy */}
-      <section ref={quoteRef} className="relative min-h-screen md:h-screen snap-start">
-        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-navy relative overflow-hidden pt-20 md:pt-0">
+      <section ref={quoteRef} className="relative min-h-screen md:h-screen snap-start scroll-mt-24">
+        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-navy relative overflow-hidden">
         <motion.div 
           className="absolute inset-0 opacity-20"
           style={{ y: quoteParallaxY, willChange: 'transform' }}
@@ -328,7 +328,7 @@ export default function About() {
           <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900" />
         </motion.div>
         <motion.div 
-          className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-12 sm:py-16"
+          className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-24 md:py-32"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}

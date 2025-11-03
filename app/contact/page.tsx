@@ -30,7 +30,7 @@ export default function Contact() {
         />
       </div>
       {/* Header */}
-      <section className="py-12 sm:py-16 bg-lightgrey">
+      <section className="py-24 md:py-32 bg-lightgrey">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial="hidden"
@@ -49,7 +49,7 @@ export default function Contact() {
       </section>
 
       {/* Core Value Propositions */}
-      <section className="py-12 sm:py-16 md:py-20 bg-white">
+      <section className="py-24 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8"
@@ -107,7 +107,7 @@ export default function Contact() {
       </section>
 
       {/* What Sets Me Apart */}
-      <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
+      <section className="py-24 md:py-32 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -161,7 +161,7 @@ export default function Contact() {
       </section>
 
       {/* Key Competencies */}
-      <section className="py-12 sm:py-16 md:py-20 bg-white">
+      <section className="py-24 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -223,7 +223,7 @@ export default function Contact() {
       </section>
 
       {/* Ready to Strengthen Your Security Operations */}
-      <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
+      <section className="py-24 md:py-32 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial="hidden"
@@ -250,7 +250,7 @@ export default function Contact() {
       </section>
 
       {/* Professional Credentials */}
-      <section className="py-12 sm:py-16 md:py-20 bg-white">
+      <section className="py-24 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"

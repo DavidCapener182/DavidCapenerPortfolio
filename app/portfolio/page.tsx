@@ -26,7 +26,7 @@ export default function Portfolio() {
         />
       </div>
       {/* Hero Banner */}
-      <section className="relative min-h-screen md:h-screen snap-start">
+      <section className="relative min-h-screen md:h-screen snap-start scroll-mt-24">
         <div className="md:sticky md:top-0 h-screen">
           <HeroBanner
             title="Case Studies & Project Highlights"
@@ -37,9 +37,9 @@ export default function Portfolio() {
       </section>
 
       {/* Case Study 1 - Eurovision */}
-      <section className="relative min-h-screen md:h-screen snap-start">
-        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-white pt-20 md:pt-0">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <section className="relative snap-start scroll-mt-24">
+        <div className="min-h-screen flex flex-col justify-start bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
             <CaseStudy
               title="Eurovision 2023, Liverpool"
               role="Venue Security Manager | M&S Bank Arena"
@@ -66,9 +66,9 @@ export default function Portfolio() {
       </section>
 
       {/* Case Study 2 - Liverpool Parade */}
-      <section className="relative min-h-screen md:h-screen snap-start">
-        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-gray-50 pt-20 md:pt-0">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <section className="relative snap-start scroll-mt-24">
+        <div className="min-h-screen flex flex-col justify-start bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
             <CaseStudy
               title="2019 LFC European Cup Parade, Liverpool"
               role="Head of Security Operations"
@@ -95,9 +95,9 @@ export default function Portfolio() {
       </section>
 
       {/* Case Study 3 - Creamfields */}
-      <section className="relative min-h-screen md:h-screen snap-start">
-        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-white pt-20 md:pt-0">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <section className="relative snap-start scroll-mt-24">
+        <div className="min-h-screen flex flex-col justify-start bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
             <CaseStudy
               title="Creamfields Festival"
               role="Security Consultant & Operational Lead"
@@ -124,9 +124,9 @@ export default function Portfolio() {
       </section>
 
       {/* Case Study 4 - Rebellion Festival */}
-      <section className="relative min-h-screen md:h-screen snap-start">
-        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-gray-50 pt-20 md:pt-0">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <section className="relative snap-start scroll-mt-24">
+        <div className="min-h-screen flex flex-col justify-start bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
             <CaseStudy
               title="Rebellion Festival, Blackpool"
               role="Site Security Manager | Crisis Lead"
@@ -152,9 +152,9 @@ export default function Portfolio() {
       </section>
 
       {/* Case Study 5 - AI Platform */}
-      <section className="relative min-h-screen md:h-screen snap-start">
-        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-white pt-20 md:pt-0">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <section className="relative snap-start scroll-mt-24">
+        <div className="min-h-screen flex flex-col justify-start bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
             <CaseStudy
               title="AI-Integrated Event Management Platform"
               role="Creator & Developer"
@@ -179,9 +179,9 @@ export default function Portfolio() {
       </section>
 
       {/* Gallery Section */}
-      <section className="relative min-h-screen md:h-screen snap-start">
-        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-lightgrey pt-20 md:pt-0">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <section className="relative min-h-screen md:h-screen snap-start scroll-mt-24">
+        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-lightgrey">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
           <motion.h2 
             className="font-heading font-bold text-3xl sm:text-4xl text-navy text-center mb-4"
             initial="hidden"
@@ -268,10 +268,10 @@ export default function Portfolio() {
       </section>
 
       {/* Closing Statement */}
-      <section className="relative min-h-screen md:h-screen snap-start">
-        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-navy text-white pt-20 md:pt-0">
+      <section className="relative min-h-screen md:h-screen snap-start scroll-mt-24">
+        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-navy text-white">
           <motion.div 
-            className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-12 sm:py-16"
+          className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-24 md:py-32"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}

@@ -25,7 +25,7 @@ export default function Experience() {
         />
       </div>
       {/* Header */}
-      <section className="py-12 sm:py-16 bg-lightgrey">
+      <section className="py-24 md:py-32 bg-lightgrey">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial="hidden"
@@ -44,7 +44,7 @@ export default function Experience() {
       </section>
 
       {/* Current Role */}
-      <section className="py-12 sm:py-16 bg-white">
+      <section className="py-24 md:py-32 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -130,7 +130,7 @@ export default function Experience() {
       </section>
 
       {/* Previous Role */}
-      <section className="py-12 sm:py-16 bg-lightgrey">
+      <section className="py-24 md:py-32 bg-lightgrey">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -196,7 +196,7 @@ export default function Experience() {
       </section>
 
       {/* Early Career */}
-      <section className="py-12 sm:py-16 bg-white">
+      <section className="py-24 md:py-32 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -254,7 +254,7 @@ export default function Experience() {
       </section>
 
       {/* Certifications */}
-      <section className="py-12 sm:py-16 bg-lightgrey">
+      <section className="py-24 md:py-32 bg-lightgrey">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2 
             className="font-heading font-bold text-3xl sm:text-4xl text-navy text-center mb-8 sm:mb-12"
@@ -298,7 +298,7 @@ export default function Experience() {
       </section>
 
       {/* Professional Skills Summary */}
-      <section className="py-12 sm:py-16 bg-white">
+      <section className="py-24 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2 
             className="font-heading font-bold text-3xl sm:text-4xl text-navy text-center mb-8 sm:mb-12"
@@ -381,7 +381,7 @@ export default function Experience() {
       </section>
 
       {/* Operational Readiness */}
-      <section className="py-12 sm:py-16 bg-lightgrey">
+      <section className="py-24 md:py-32 bg-lightgrey">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -403,7 +403,7 @@ export default function Experience() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-12 sm:py-16 bg-navy text-white">
+      <section className="py-24 md:py-32 bg-navy text-white">
         <motion.div 
           className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
           initial="hidden"

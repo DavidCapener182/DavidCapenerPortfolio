@@ -25,7 +25,7 @@ export default function Testimonials() {
         />
       </div>
       {/* Hero Banner */}
-      <section className="relative min-h-screen md:h-screen snap-start">
+      <section className="relative min-h-screen md:h-screen snap-start scroll-mt-24">
         <div className="md:sticky md:top-0 h-screen">
           <HeroBanner
             title="Professional References & Endorsements"
@@ -35,7 +35,7 @@ export default function Testimonials() {
       </section>
 
       {/* Introduction */}
-      <section className="py-12 sm:py-16 bg-white">
+      <section className="py-24 md:py-32 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -57,7 +57,7 @@ export default function Testimonials() {
       </section>
 
       {/* Testimonial Cards */}
-      <section className="py-12 sm:py-16 bg-lightgrey">
+      <section className="py-24 md:py-32 bg-lightgrey">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
@@ -225,7 +225,7 @@ export default function Testimonials() {
       </section>
 
       {/* Note Section */}
-      <section className="py-12 sm:py-16 bg-white">
+      <section className="py-24 md:py-32 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -251,7 +251,7 @@ export default function Testimonials() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-12 sm:py-16 bg-navy text-white">
+      <section className="py-24 md:py-32 bg-navy text-white">
         <motion.div 
           className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
           initial="hidden"

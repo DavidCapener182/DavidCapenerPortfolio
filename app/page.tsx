@@ -33,7 +33,7 @@ export default function Home() {
         />
       </div>
       {/* Hero Banner */}
-      <section className="relative min-h-screen md:h-screen snap-start">
+      <section className="relative min-h-screen md:h-screen snap-start scroll-mt-24">
         <div className="md:sticky md:top-0 h-screen">
           <HeroBanner
             title="David Capener — Security Operations & Crowd Safety Leader"
@@ -46,15 +46,15 @@ export default function Home() {
       </section>
 
       {/* Professional Overview */}
-      <section className="relative min-h-screen md:h-screen snap-start">
-        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-gradient-to-b from-lightgrey to-white relative overflow-hidden pt-20 md:pt-0">
+      <section className="relative min-h-screen md:h-screen snap-start scroll-mt-24">
+        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-gradient-to-b from-lightgrey to-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
             backgroundImage: `radial-gradient(circle at 1px 1px, navy 1px, transparent 0)`,
             backgroundSize: '30px 30px'
           }}></div>
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-12 sm:py-16 md:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-24 md:py-32">
           <motion.div 
             className="max-w-4xl mx-auto text-center"
             initial="hidden"
@@ -121,10 +121,10 @@ export default function Home() {
       </section>
 
       {/* Key Achievements */}
-      <section id="achievements" className="relative min-h-screen md:h-screen snap-start">
-        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-white relative pt-20 md:pt-0">
+      <section id="achievements" className="relative snap-start scroll-mt-24">
+        <div className="min-h-screen flex flex-col justify-start bg-white relative">
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-red to-transparent"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 w-full">
           <motion.div 
             className="text-center mb-8 sm:mb-12 md:mb-16"
             initial="hidden"
@@ -137,7 +137,7 @@ export default function Home() {
             </h2>
             <div className="w-24 h-1 bg-red mx-auto"></div>
           </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 items-stretch">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch mb-8">
             <AchievementCard
               title="Eurovision 2023, Liverpool"
               subtitle="Full venue management and live broadcast security — delivered with zero major incidents."
@@ -186,9 +186,9 @@ export default function Home() {
       </section>
 
       {/* What I Offer */}
-      <section className="relative min-h-screen md:h-screen snap-start">
-        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-lightgrey relative pt-20 md:pt-0">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20">
+      <section className="relative min-h-screen md:h-screen snap-start scroll-mt-24">
+        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-lightgrey relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
           <motion.div 
             className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12"
             variants={staggerContainer.full}
@@ -246,8 +246,8 @@ export default function Home() {
       </section>
 
       {/* Quote/Motto Section */}
-      <section ref={quoteRef} className="relative min-h-screen md:h-screen snap-start">
-        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden pt-20 md:pt-0">
+      <section ref={quoteRef} className="relative min-h-screen md:h-screen snap-start scroll-mt-24">
+        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
         <motion.div 
           className="absolute inset-0 opacity-10"
           style={{ y: quoteParallaxY, willChange: 'transform' }}
@@ -258,7 +258,7 @@ export default function Home() {
           }}></div>
         </motion.div>
         <motion.div 
-          className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-12 sm:py-16 md:py-20"
+          className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-24 md:py-32"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
