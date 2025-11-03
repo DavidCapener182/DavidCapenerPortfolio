@@ -1,0 +1,63 @@
+REQUIRED IMAGES FOR DAVID CAPENER PORTFOLIO
+============================================
+
+Add these images to this folder: /public/images/
+
+═══════════════════════════════════════════════════════════════════════════
+
+1. eurovision-arena.jpg
+   Size: 1200x800px (3:2 aspect ratio)
+   Format: JPG
+   Description: M&S Bank Arena during Eurovision 2023, venue or security operations
+
+2. creamfields-festival.jpg
+   Size: 1200x800px (3:2 aspect ratio)
+   Format: JPG
+   Description: Creamfields Festival scene showing crowd management
+
+3. rebellion-festival.jpg
+   Size: 1200x800px (3:2 aspect ratio)
+   Format: JPG
+   Description: Rebellion Festival venue or security operations
+
+4. ai-platform-mockup.png
+   Size: 1200x800px (3:2 aspect ratio)
+   Format: PNG
+   Description: Screenshot or mockup of AI event management platform interface
+
+5. portfolio-hero.jpg
+   Size: 1920x1080px (16:9 aspect ratio)
+   Format: JPG
+   Description: Professional montage of event operations, security teams, or venue management
+
+6. gallery-1.jpg
+   Size: 1200x800px (3:2 aspect ratio)
+   Format: JPG
+   Description: Major Event Operations - large-scale live environment management
+
+7. gallery-2.jpg
+   Size: 1200x800px (3:2 aspect ratio)
+   Format: JPG
+   Description: Team Leadership - briefings, coordination, staff welfare engagement
+
+8. gallery-3.jpg
+   Size: 1200x800px (3:2 aspect ratio)
+   Format: JPG
+   Description: Control Room Operations - real-time response and monitoring
+
+9. headshot.jpg
+   Size: 800x800px (1:1 aspect ratio, square)
+   Format: JPG
+   Description: Professional portrait photo of David Capener
+
+═══════════════════════════════════════════════════════════════════════════
+
+QUICK REFERENCE:
+- Achievement Cards (eurovision, creamfields, rebellion, ai-platform): 1200x800px
+- Hero Banner (portfolio-hero): 1920x1080px
+- Gallery Images: 1200x800px
+- Headshot: 800x800px (square)
+
+All images should be optimized for web (compressed) before adding.
+The website will work without these images but will show gray placeholders.
+
