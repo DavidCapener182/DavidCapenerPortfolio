@@ -101,7 +101,7 @@ export default function Portfolio() {
             <CaseStudy
               title="Creamfields Festival"
               role="Security Consultant & Operational Lead"
-              client="Live Nation (via H&A Protection Services)"
+              client="Live Nation (via H&A Protection Services and Compact Security Services)"
               duration="2013 – Present"
               description="Over the past decade, I've provided strategic oversight and on-the-ground management for Creamfields — one of the UK's largest electronic music festivals. My role covers operational planning, control room command, and coordination between security, medical, and production teams. This long-term engagement demonstrates my ability to manage evolving risk profiles, sustain staff motivation, and maintain consistent safety standards across changing environments."
               keyOutcomes={[
@@ -156,16 +156,16 @@ export default function Portfolio() {
         <div className="min-h-screen flex flex-col justify-start bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
             <CaseStudy
-              title="AI-Integrated Event Management Platform"
+              title="InCommand"
               role="Creator & Developer"
-              description="I designed and developed an AI-driven event management platform that integrates Martyn's Law principles into a dynamic decision-support system. The platform provides real-time risk analysis, prompts control rooms through predefined scenarios, and supports continuous monitoring across festivals, stadiums, and campus environments. The system is currently in the testing phase and scheduled for deployment in 2026."
+              description="I designed and developed InCommand, an event management platform that integrates Martyn's Law principles into a dynamic decision-support system. The platform incorporates AI technology to provide real-time risk analysis, prompts control rooms through predefined scenarios, and supports continuous monitoring across festivals and stadiums. The system is currently in the testing phase and scheduled for deployment in 2026."
               keyOutcomes={[
                 'Real-time incident decision support',
                 "Martyn's Law compliance mapping and automated escalation prompts",
-                'Integration with existing venue and campus control systems',
+                'Integration with existing venue control systems',
               ]}
               imageSrc="/images/ai-platform-mockup.png"
-              imageAlt="AI Event Management Platform"
+              imageAlt="InCommand Event Management Platform"
             />
             <motion.div
               animate={{ y: [0, 6, 0] }}

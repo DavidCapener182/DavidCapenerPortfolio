@@ -174,9 +174,9 @@ export default function Home() {
               iconType="rebellion"
             />
             <AchievementCard
-              title="AI-Driven Event Management Platform"
-              subtitle="Developing real-time decision-support tool aligned with Martyn's Law compliance."
-              description="Designed and built a bespoke platform integrating Martyn's Law principles with artificial intelligence to support control rooms in real-time decision-making for festivals, music, and sporting events. Scheduled for live deployment in 2026 following successful testing phases."
+              title="InCommand"
+              subtitle="Event management platform with integrated AI, aligned with Martyn's Law compliance."
+              description="Designed and built InCommand, a bespoke platform that integrates Martyn's Law principles with AI technology to support control rooms in real-time decision-making for festivals, music, and sporting events. Scheduled for live deployment in 2026 following successful testing phases."
               imageSrc="/images/ai-platform-mockup.png"
               iconType="ai"
             />
