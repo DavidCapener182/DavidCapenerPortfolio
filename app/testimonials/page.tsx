@@ -25,8 +25,8 @@ export default function Testimonials() {
         />
       </div>
       {/* Hero Banner */}
-      <section className="relative min-h-screen md:h-screen snap-start scroll-mt-24">
-        <div className="md:sticky md:top-0 h-screen">
+      <section className="relative min-h-screen md:h-[934px] snap-start scroll-mt-24">
+        <div className="md:sticky md:top-0 md:h-[934px] md:max-w-[1800px] md:mx-auto">
           <HeroBanner
             title="Professional References & Endorsements"
             description="Peer and client feedback showcasing leadership in safety operations, crisis management, and counter-terrorism readiness — highlighting trust, collaboration, and professional integrity across high-profile environments."

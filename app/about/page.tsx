@@ -33,15 +33,15 @@ export default function About() {
       </div>
       
       {/* Sticky Header */}
-      <div className="sticky top-16 md:top-16 bg-lightgrey z-10 py-3 sm:py-4 border-b border-gray-200">
+      <div className="sticky top-16 md:top-16 z-10 py-3 sm:py-4 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl sm:text-3xl font-bold text-navy">About David Capener</h1>
         </div>
       </div>
       {/* Header Section */}
-      <section className="relative min-h-screen md:h-screen snap-start scroll-mt-24">
-        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-lightgrey">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+      <section className="relative min-h-screen md:h-[934px] snap-start scroll-mt-24">
+        <div className="md:sticky md:top-0 min-h-screen md:h-[934px] md:max-w-[1800px] md:mx-auto flex flex-col justify-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-16 md:pb-20">
           <motion.div 
             className="text-center mb-8 sm:mb-12"
             initial="hidden"
@@ -79,9 +79,9 @@ export default function About() {
       </section>
 
       {/* Professional Story */}
-      <section className="relative min-h-screen md:h-screen snap-start scroll-mt-24">
-        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+      <section className="relative min-h-screen md:h-[934px] snap-start scroll-mt-24">
+        <div className="md:sticky md:top-0 min-h-screen md:h-[934px] md:max-w-[1800px] md:mx-auto flex flex-col justify-center">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-16 md:pb-20">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -109,7 +109,7 @@ export default function About() {
 
       {/* Professional Focus & Values */}
       <section className="relative snap-start scroll-mt-24">
-        <div className="min-h-screen flex flex-col justify-start bg-lightgrey">
+        <div className="min-h-screen flex flex-col justify-start">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
           <motion.div
             initial="hidden"
@@ -198,8 +198,8 @@ export default function About() {
 
       {/* Strengths */}
       <section className="relative snap-start scroll-mt-24">
-        <div className="min-h-screen flex flex-col justify-start bg-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+        <div className="min-h-screen flex flex-col justify-start">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-16 md:pb-20">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -277,9 +277,9 @@ export default function About() {
       </section>
 
       {/* Professional Development Area */}
-      <section className="relative min-h-screen md:h-screen snap-start scroll-mt-24">
-        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-lightgrey">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+      <section className="relative min-h-screen md:h-[934px] snap-start scroll-mt-24">
+        <div className="md:sticky md:top-0 min-h-screen md:h-[934px] md:max-w-[1800px] md:mx-auto flex flex-col justify-center">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-16 md:pb-20">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -298,9 +298,9 @@ export default function About() {
       </section>
 
       {/* Commitment to Inclusion */}
-      <section className="relative min-h-screen md:h-screen snap-start scroll-mt-24">
-        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+      <section className="relative min-h-[869px] snap-start scroll-mt-24">
+        <div className="md:sticky md:top-0 min-h-[869px] md:max-w-[1800px] md:mx-auto flex flex-col justify-center">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-16 md:pb-20">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -319,8 +319,8 @@ export default function About() {
       </section>
 
       {/* Personal Philosophy */}
-      <section ref={quoteRef} className="relative min-h-screen md:h-screen snap-start scroll-mt-24">
-        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-navy relative overflow-hidden">
+      <section ref={quoteRef} className="relative min-h-screen md:h-[934px] snap-start scroll-mt-24">
+        <div className="md:sticky md:top-0 min-h-screen md:h-[934px] md:max-w-[1800px] md:mx-auto flex flex-col justify-center bg-navy relative overflow-hidden -mt-16 md:-mt-20">
         <motion.div 
           className="absolute inset-0 opacity-20"
           style={{ y: quoteParallaxY, willChange: 'transform' }}
@@ -328,7 +328,7 @@ export default function About() {
           <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900" />
         </motion.div>
         <motion.div 
-          className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-24 md:py-32"
+          className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-8 md:pt-12 pb-16 md:pb-20"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}

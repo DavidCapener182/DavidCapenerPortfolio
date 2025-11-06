@@ -39,8 +39,9 @@
 html {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
-  scroll-padding-top: 6rem;
+  scroll-padding-top: 5rem; /* equal to navbar height */
   overflow-y: scroll;
+  background-color: #ffffff; /* ensures fallback background matches sections */
 }
 
 body {

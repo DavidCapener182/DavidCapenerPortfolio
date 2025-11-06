@@ -33,21 +33,19 @@ export default function Home() {
         />
       </div>
       {/* Hero Banner */}
-      <section className="relative min-h-screen md:h-screen snap-start scroll-mt-24">
-        <div className="md:sticky md:top-0 h-screen">
+      <section className="relative min-h-screen md:h-[934px] snap-start scroll-mt-24">
+        <div className="md:sticky md:top-0 md:h-[934px] md:max-w-[1800px] md:mx-auto">
           <HeroBanner
             title="David Capener — Security Operations & Crowd Safety Leader"
             subtitle="Protecting People. Building Confidence. Leading Teams with Precision and Integrity."
             description="Dedicated to creating safer, more inclusive environments across events, campuses, and public venues — integrating counter terrorism awareness and protective security principles into every operation."
-            ctaText="View My Work"
-            ctaHref="#achievements"
           />
         </div>
       </section>
 
       {/* Professional Overview */}
-      <section className="relative min-h-screen md:h-screen snap-start scroll-mt-24">
-        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-gradient-to-b from-lightgrey to-white relative overflow-hidden">
+      <section className="relative min-h-screen md:h-[934px] snap-start scroll-mt-24">
+        <div className="md:sticky md:top-0 min-h-screen md:h-[934px] md:max-w-[1800px] md:mx-auto flex flex-col justify-start bg-gradient-to-b from-lightgrey to-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
             backgroundImage: `radial-gradient(circle at 1px 1px, navy 1px, transparent 0)`,
@@ -120,13 +118,13 @@ export default function Home() {
       </div>
       </section>
 
-      {/* Key Achievements */}
-      <section id="achievements" className="relative snap-start scroll-mt-24">
-        <div className="min-h-screen flex flex-col justify-start bg-white relative">
+      {/* Key Achievements - First 3 */}
+      <section id="achievements" className="relative min-h-screen md:h-[934px] snap-start scroll-mt-24">
+        <div className="md:sticky md:top-0 min-h-screen md:h-[934px] md:max-w-[1800px] md:mx-auto flex flex-col justify-start bg-white relative">
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-red to-transparent"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-16 md:pb-20 w-full">
           <motion.div 
-            className="text-center mb-8 sm:mb-12 md:mb-16"
+            className="text-center mb-6 sm:mb-8 md:mb-10"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -159,6 +157,29 @@ export default function Home() {
               imageSrc="/images/liverpool-parade.jpg"
               iconType="parade"
             />
+          </div>
+        </div>
+      </div>
+      </section>
+
+      {/* Key Achievements - Second 3 */}
+      <section className="relative min-h-screen md:h-[934px] snap-start scroll-mt-24">
+        <div className="md:sticky md:top-0 min-h-screen md:h-[934px] md:max-w-[1800px] md:mx-auto flex flex-col justify-start bg-white relative">
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-red to-transparent"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-16 md:pb-20 w-full">
+          <motion.div 
+            className="text-center mb-6 sm:mb-8 md:mb-10"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeUp.full}
+          >
+            <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl text-navy mb-4">
+              Key Achievements
+            </h2>
+            <div className="w-24 h-1 bg-red mx-auto"></div>
+          </motion.div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch mb-8">
             <AchievementCard
               title="Creamfields Festival (2013–Present)"
               subtitle="Streamlined access operations and multi-agency coordination improving crowd efficiency."
@@ -186,9 +207,9 @@ export default function Home() {
       </section>
 
       {/* What I Offer */}
-      <section className="relative min-h-screen md:h-screen snap-start scroll-mt-24">
-        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-lightgrey relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+      <section className="relative min-h-screen md:h-[934px] snap-start scroll-mt-24">
+        <div className="md:sticky md:top-0 min-h-screen md:h-[934px] md:max-w-[1800px] md:mx-auto flex flex-col justify-start bg-lightgrey relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-16 md:pb-20">
           <motion.div 
             className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12"
             variants={staggerContainer.full}
@@ -246,8 +267,8 @@ export default function Home() {
       </section>
 
       {/* Quote/Motto Section */}
-      <section ref={quoteRef} className="relative min-h-screen md:h-screen snap-start scroll-mt-24">
-        <div className="md:sticky md:top-0 min-h-screen md:h-screen flex flex-col justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
+      <section ref={quoteRef} className="relative min-h-screen md:h-[934px] snap-start scroll-mt-24">
+        <div className="md:sticky md:top-0 min-h-screen md:h-[934px] md:max-w-[1800px] md:mx-auto flex flex-col justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
         <motion.div 
           className="absolute inset-0 opacity-10"
           style={{ y: quoteParallaxY, willChange: 'transform' }}
