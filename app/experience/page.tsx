@@ -28,12 +28,12 @@ export default function Experience() {
 
   const { scrollYProgress: pageScrollProgress } = useScroll({
     target: containerRef,
-    offset: ['start start', 'end end']
+    offset: ['start start', 'end end'],
   })
 
   return (
     <div ref={containerRef} className="relative snap-y snap-mandatory">
-      {/* Vertical Progress Bar */}
+      {/* ===== VERTICAL PROGRESS BAR ===== */}
       <div className="hidden md:block fixed right-0 top-16 bottom-0 w-1 bg-gray-200 z-30">
         <motion.div
           className="w-full bg-red origin-top"
@@ -41,24 +41,35 @@ export default function Experience() {
         />
       </div>
 
-      {/* ===== HEADER ===== */}
-      <StickySection bg="bg-lightgrey">
-        <div className="text-center max-w-5xl mx-auto">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeUp.light}
-          >
-            <h1 className="font-heading font-bold text-4xl sm:text-5xl text-navy mb-6">
-              Professional Experience
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-700 leading-relaxed">
-              Over a decade of leadership across the UK’s most prestigious events and venues — delivering operational excellence, safety compliance, counter terrorism awareness, and team performance in demanding live and public environments.
-            </p>
-          </motion.div>
+      {/* ===== HERO HEADER ===== */}
+      <section className="relative snap-start h-[940px]">
+        <div className="sticky top-16 h-[940px] w-full overflow-hidden">
+          {/* Background image placeholder */}
+          <div className="absolute inset-0">
+            <img
+              src="/images/experience-hero.jpg" // 👈 replace this with your chosen hero image
+              alt="Professional experience background"
+              className="w-full h-full object-cover brightness-[0.45]"
+            />
+          </div>
+
+          {/* Overlay content */}
+          <div className="relative z-10 flex flex-col justify-center items-center h-full text-center px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={fadeUp.moderate}
+            >
+              <h1 className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl text-white mb-6">
+                Professional Experience
+              </h1>
+              <p className="text-lg sm:text-xl text-gray-100 max-w-4xl mx-auto leading-relaxed">
+                Over a decade of leadership across the UK’s most prestigious events and venues — combining operational expertise, composure under pressure, and a commitment to the safety and wellbeing of every person on site.
+              </p>
+            </motion.div>
+          </div>
         </div>
-      </StickySection>
+      </section>
 
       {/* ===== CURRENT ROLE ===== */}
       <StickySection bg="bg-white">
@@ -86,10 +97,11 @@ export default function Experience() {
             Compact Security Services | September 2023 – Present
           </p>
           <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-6">
-            As Senior Operations Manager, I oversee the full spectrum of event and festival security operations — from strategic planning and risk assessment to live delivery and post-event evaluation. My remit includes integrating counter terrorism principles into all operational protocols.
+            As Senior Operations Manager, I lead all aspects of event and festival security operations — from strategic planning and risk assessment to live delivery and post-event review. My focus is on maintaining composure, clear communication, and proportionate response in every environment.
           </p>
+
           <p className="text-base sm:text-lg text-gray-700 font-semibold mb-3">
-            Responsibilities include:
+            Core Responsibilities:
           </p>
           <ul className="space-y-2 text-base text-gray-700 mb-6">
             {[
@@ -97,14 +109,15 @@ export default function Experience() {
               'Conducting detailed risk assessments and compliance audits',
               'Coordinating with clients, local authorities, and venue management',
               'Leading multidisciplinary teams during live operations',
-              'Managing staff wellbeing and welfare',
+              'Managing staff wellbeing and professional development',
               'Coaching and mentoring security professionals',
-              'Analysing incident data for preventive measures',
-              'Managing crisis response under the MIMMS framework',
+              'Analysing incident data to inform preventive measures',
+              'Overseeing crisis response under the MIMMS framework',
               'Integrating Counter Terrorism Level 6 principles into planning',
             ].map((item, i) => (
               <li key={i} className="flex items-start">
-                <span className="text-red mr-3 font-bold">•</span> {item}
+                <span className="text-red mr-3 font-bold">•</span>
+                {item}
               </li>
             ))}
           </ul>
@@ -133,19 +146,20 @@ export default function Experience() {
             H&A Protection Services Ltd | April 2018 – September 2023
           </p>
           <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4">
-            Oversaw operations across civic, festival, and local authority contracts, embedding counter terrorism preparedness and safety planning.
+            Managed multi-site operations across festivals, civic events, and local authority contracts — embedding counter terrorism readiness, safety planning, and continuous improvement throughout all teams.
           </p>
           <ul className="space-y-2 text-base text-gray-700 mb-6">
             {[
-              'Recruited, trained and led over 150 security professionals',
-              'Led security at national festivals and stadiums',
+              'Recruited, trained, and led over 150 security professionals',
               'Delivered bespoke safety and crowd management plans',
-              'Implemented disciplinary and compliance processes',
-              'Developed security frameworks for civic facilities',
-              'Introduced Counter Terrorism Level 6 staff training programmes',
+              'Oversaw large-scale civic and festival contracts nationwide',
+              'Introduced compliance and disciplinary frameworks',
+              'Enhanced cooperation between event control, emergency services, and management teams',
+              'Implemented Counter Terrorism Level 6 staff training programmes',
             ].map((item, i) => (
               <li key={i} className="flex items-start">
-                <span className="text-red mr-3 font-bold">•</span> {item}
+                <span className="text-red mr-3 font-bold">•</span>
+                {item}
               </li>
             ))}
           </ul>
@@ -174,17 +188,18 @@ export default function Experience() {
             Showsec International | G4S Events | Liverpool Football Club | 2012 – 2018
           </p>
           <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4">
-            Built a foundation in crowd control, safety coordination, and counter terrorism awareness, progressing from Safety Steward to Head of Security.
+            Developed foundations in crowd safety, event logistics, and control-room coordination — progressing from Safety Steward to Head of Security through professionalism, adaptability, and calm leadership.
           </p>
           <ul className="space-y-2 text-base text-gray-700 mb-6">
             {[
-              'International football and rugby matches',
+              'Major football and rugby fixtures',
               'Music festivals and government conferences',
               'The Open Golf Championships and World Dance Festivals',
-              'CBBC Live Event — full build and production phase security',
+              'CBBC Live Event — build and production phase security',
             ].map((item, i) => (
               <li key={i} className="flex items-start">
-                <span className="text-red mr-3 font-bold">•</span> {item}
+                <span className="text-red mr-3 font-bold">•</span>
+                {item}
               </li>
             ))}
           </ul>
@@ -222,7 +237,7 @@ export default function Experience() {
             ].map((cert, i) => (
               <Card
                 key={i}
-                className="border-l-4 border-navy shadow-md hover:shadow-lg transition-transform duration-300"
+                className="border-l-4 border-navy shadow-md hover:shadow-lg hover:border-red transition-transform duration-300"
               >
                 <CardContent className="p-6">
                   <h3 className="font-heading font-semibold text-xl text-navy">{cert}</h3>
@@ -233,7 +248,7 @@ export default function Experience() {
         </div>
       </StickySection>
 
-      {/* ===== SKILLS ===== */}
+      {/* ===== PROFESSIONAL SKILLS ===== */}
       <StickySection bg="bg-white">
         <div className="w-full">
           <motion.h2
@@ -245,6 +260,7 @@ export default function Experience() {
           >
             Professional Skills Summary
           </motion.h2>
+
           <motion.div
             variants={staggerContainer.light}
             initial="hidden"
@@ -253,23 +269,31 @@ export default function Experience() {
           >
             {[
               {
-                label: 'Operational',
+                label: 'Operational Expertise',
                 items: [
                   'Operational Leadership',
                   'Health & Safety Compliance',
-                  'Crisis Management',
-                  'Risk Assessment',
+                  'Crisis Management & Decision-Making',
+                  'Risk Assessment & Mitigation',
                   'Emergency Response Coordination',
-                  'Training & Mentorship',
                 ],
               },
               {
-                label: 'Strategic',
+                label: 'Strategic Capability',
                 items: [
-                  'Strategic Planning',
+                  'Strategic & Contingency Planning',
                   'Client Relationship Management',
-                  'Evidence-Based Decision Making',
-                  'Stakeholder Engagement',
+                  'Evidence-Based Analysis',
+                  'Stakeholder Communication',
+                ],
+              },
+              {
+                label: 'Leadership & People Management',
+                items: [
+                  'Team Leadership & Motivation',
+                  'Staff Welfare & Wellbeing',
+                  'Performance Coaching & Mentoring',
+                  'Conflict Resolution & Communication',
                 ],
               },
               {

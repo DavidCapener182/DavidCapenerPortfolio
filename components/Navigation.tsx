@@ -30,7 +30,6 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="flex items-center space-x-2 text-[#eef3ff] font-heading font-bold text-base sm:text-lg tracking-wider hover:text-white transition-colors duration-200">
-            <div className="w-3 h-3 bg-[#d4a574] transform rotate-45"></div>
             <span className="uppercase">David Capener</span>
           </Link>
 

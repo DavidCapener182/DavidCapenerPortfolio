@@ -1,12 +1,10 @@
 'use client'
 
-import HeroBanner from '@/components/HeroBanner'
 import { Card, CardContent } from '@/components/ui/card'
-import { motion, useScroll } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { fadeUp, staggerContainer } from '@/lib/animationVariants'
 import { useRef, PropsWithChildren } from 'react'
 
-/** Shared consistent section wrapper: 1800×940 sticky panels */
 function StickySection({
   bg = 'bg-white',
   children,
@@ -26,6 +24,16 @@ function StickySection({
 
 export default function Testimonials() {
   const containerRef = useRef<HTMLDivElement>(null)
+
+  const { scrollYProgress: pageScrollProgress } = useScroll({
+    target: containerRef,
+    offset: ['start start', 'end end'],
+  })
+
+  // Parallax hero motion
+  const y = useTransform(pageScrollProgress, [0, 1], ['0%', '20%'])
+  const opacity = useTransform(pageScrollProgress, [0, 0.15], [1, 0.8])
+
   const logoSlots = [
     { label: 'LFC', imageSrc: '/images/logo-placeholder-01.jpg' },
     { label: 'MCFC', imageSrc: '/images/logo-placeholder-02.jpg' },
@@ -47,11 +55,6 @@ export default function Testimonials() {
     { label: 'Plus many more' },
   ]
 
-  const { scrollYProgress: pageScrollProgress } = useScroll({
-    target: containerRef,
-    offset: ['start start', 'end end'],
-  })
-
   const testimonials = [
     {
       text: "Dave's multitasking ability is unlike I’ve seen before. I’m always impressed by his ability to handle any situation calmly and patiently, even with the toughest of clients.",
@@ -68,8 +71,8 @@ export default function Testimonials() {
     {
       text: 'Working with David across several major festivals, I’ve always valued his foresight and calm decision-making. His situational awareness is second to none.',
       name: 'John Proybn',
-      title: "CEO",
-      organisation: "Live Nation",
+      title: 'CEO',
+      organisation: 'Live Nation',
     },
     {
       text: 'David’s leadership style fosters both confidence and collaboration. During Eurovision he kept every moving part aligned, even as the city hosted thousands of guests.',
@@ -101,14 +104,30 @@ export default function Testimonials() {
         />
       </div>
 
-      {/* ===== HERO SECTION ===== */}
-      <section className="relative snap-start h-[940px]">
+      {/* ===== HERO SECTION WITH PARALLAX ===== */}
+      <section className="relative snap-start h-[940px] overflow-hidden">
         <div className="sticky top-16 h-[940px] w-full overflow-hidden">
-          <HeroBanner
-            title="Professional References & Endorsements"
-            description="Peer and client feedback showcasing leadership in safety operations, crisis management, and counter-terrorism readiness — highlighting trust, collaboration, and professional integrity across high-profile environments."
-            imageSrc="/images/testimonials-hero.jpg"
+          <motion.img
+            src="/images/testimonials-hero.jpg"
+            alt="Live event stage background"
+            className="absolute inset-0 w-full h-full object-cover brightness-[0.45]"
+            style={{ y, opacity, willChange: 'transform, opacity' }}
           />
+
+          <div className="relative z-10 flex flex-col justify-center items-center h-full text-center px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, ease: 'easeOut' }}
+            >
+              <h1 className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl text-white mb-6">
+                Professional References & Endorsements
+              </h1>
+              <p className="text-lg sm:text-xl text-gray-100 max-w-4xl mx-auto leading-relaxed">
+                Peer and client feedback showcasing leadership in safety operations, crisis management, and counter-terrorism readiness — highlighting trust, collaboration, and professional integrity across high-profile environments.
+              </p>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -127,6 +146,7 @@ export default function Testimonials() {
           <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-8">
             Here are some of the partners and venues I’ve worked with across festivals, arenas, civic spaces, and stadiums.
           </p>
+
           <motion.div
             className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6"
             variants={staggerContainer.moderate}
@@ -141,7 +161,7 @@ export default function Testimonials() {
                   <img
                     src={logo.imageSrc}
                     alt={logo.label}
-                    className="max-h-12 sm:max-h-14 object-contain mb-2"
+                    className="max-h-12 sm:max-h-14 object-contain mb-2 grayscale hover:grayscale-0 transition duration-500"
                   />
                 ) : (
                   <div className="flex items-center justify-center mb-2 h-12 sm:h-14 w-full text-gray-300 text-lg font-bold">
@@ -174,6 +194,7 @@ export default function Testimonials() {
               All recommendations are sourced directly from LinkedIn endorsements.
             </p>
           </motion.div>
+
           <motion.div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
             variants={staggerContainer.moderate}
@@ -181,35 +202,35 @@ export default function Testimonials() {
             whileInView="visible"
             viewport={{ once: false, amount: 0.2 }}
           >
-          {testimonials.map((item, i) => (
-            <motion.div key={i} variants={fadeUp.moderate}>
-              <Card className="border-l-4 border-t-4 border-red shadow-lg h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                <CardContent className="p-6">
-                  <motion.svg
-                    className="w-12 h-12 text-red/30 mb-4"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                    animate={{ scale: [1, 1.05, 1] }}
-                    transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
-                  >
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.984zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                  </motion.svg>
+            {testimonials.map((item, i) => (
+              <motion.div key={i} variants={fadeUp.moderate}>
+                <Card className="border-l-4 border-t-4 border-red shadow-lg h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                  <CardContent className="p-6">
+                    <motion.svg
+                      className="w-12 h-12 text-red/30 mb-4"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                      animate={{ scale: [1, 1.05, 1] }}
+                      transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
+                    >
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.996 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.984zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                    </motion.svg>
 
-                  <blockquote className="text-gray-700 text-base md:text-lg leading-relaxed mb-6 italic">
-                    “{item.text}”
-                  </blockquote>
-                  <div className="border-t pt-4">
-                    <p className="font-semibold text-navy">{item.name}</p>
-                    <p className="text-gray-600">{item.title}</p>
-                    <p className="text-gray-500 text-sm">{item.organisation}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+                    <blockquote className="text-gray-700 text-base md:text-lg leading-relaxed mb-6 italic">
+                      “{item.text}”
+                    </blockquote>
+                    <div className="border-t pt-4">
+                      <p className="font-semibold text-navy">{item.name}</p>
+                      <p className="text-gray-600">{item.title}</p>
+                      <p className="text-gray-500 text-sm">{item.organisation}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </StickySection>
     </div>
   )
-} 
+}

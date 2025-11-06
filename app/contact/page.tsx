@@ -2,11 +2,10 @@
 
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { motion, useScroll } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { fadeUp, staggerContainer, slideLeft, slideRight } from '@/lib/animationVariants'
 import { useRef, PropsWithChildren } from 'react'
 
-/** Shared consistent section wrapper for sticky 940 px panels */
 function StickySection({
   bg = 'bg-white',
   children,
@@ -24,13 +23,15 @@ function StickySection({
   )
 }
 
-export default function Contact() {
+export default function WhyHireMe() {
   const containerRef = useRef<HTMLDivElement>(null)
-
-  const { scrollYProgress: pageScrollProgress } = useScroll({
+  const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end end'],
   })
+
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '20%'])
+  const opacity = useTransform(scrollYProgress, [0, 0.1], [1, 0.85])
 
   return (
     <motion.div
@@ -43,7 +44,7 @@ export default function Contact() {
       <div className="hidden md:block fixed right-0 top-16 bottom-0 w-1 bg-gray-200 z-30">
         <motion.div
           className="w-full bg-red origin-top"
-          style={{ scaleY: pageScrollProgress, height: '100%' }}
+          style={{ scaleY: scrollYProgress, height: '100%' }}
         />
       </div>
 
@@ -111,7 +112,7 @@ export default function Contact() {
                   Communication & Adaptability
                 </h3>
                 <p className="text-base text-gray-700 leading-relaxed">
-                  Exceptional communicator across diverse audiences — students, staff, emergency services, and leadership teams — ensuring clarity, authority, and compliance with professional standards.
+                  Exceptional communicator across diverse audiences — ensuring clarity, authority, and confidence in high-pressure situations.
                 </p>
               </CardContent>
             </Card>
@@ -140,7 +141,7 @@ export default function Contact() {
               },
               {
                 title: '👥 Staff Development Focus',
-                desc: "I don’t just manage operations — I develop people. With extensive experience mentoring and performance coaching, I build capable, motivated teams prepared to lead with confidence and awareness at every level.",
+                desc: 'I don’t just manage operations — I develop people. I build capable, motivated teams prepared to lead with confidence and awareness at every level.',
               },
               {
                 title: '📊 Data-Driven Innovation',
@@ -148,7 +149,7 @@ export default function Contact() {
               },
               {
                 title: '🌍 Commitment to Inclusion',
-                desc: 'Leadership built on fairness, accessibility, and representation. I ensure every team member feels valued and supported, because true safety leadership is inclusive leadership.',
+                desc: 'Leadership built on fairness, accessibility, and representation. Every team member is supported, valued, and included — because true safety leadership is inclusive leadership.',
               },
             ].map((item, i) => (
               <div
@@ -188,11 +189,11 @@ export default function Contact() {
             {[
               ['✅ Line Management', 'Experienced in managing multi-tiered teams with strong welfare and motivation focus.'],
               ['✅ Risk Management', 'Expert in identifying, analysing, and mitigating risk through dynamic assessment and protective planning.'],
-              ['✅ Analytical Skills', 'Skilled in extracting and analysing operational data to inform policy and decision-making.'],
-              ['✅ Communication', 'Adept at adjusting language and messaging to suit diverse stakeholder needs.'],
-              ['✅ Resilience', 'Maintains composure and wellbeing for self and teams during complex situations.'],
-              ['✅ Flexibility', 'Experienced in managing 24/7 operational environments with rotating coverage.'],
-              ['✅ Protective Security & Counter-Terrorism', 'Qualified to Level 6 in Counter-Terrorism and Protective Security, integrating prevention, preparedness, and response into daily operations.'],
+              ['✅ Analytical Skills', 'Adept at extracting and analysing operational data to inform strategic and tactical decisions.'],
+              ['✅ Communication', 'Experienced in briefing senior management and multi-agency partners effectively.'],
+              ['✅ Resilience', 'Maintains composure and wellbeing for self and teams during complex operations.'],
+              ['✅ Flexibility', 'Accustomed to managing 24/7 operational environments with adaptable leadership.'],
+              ['✅ Protective Security & Counter-Terrorism', 'Qualified to Level 6 in Counter-Terrorism and Protective Security, integrating prevention, preparedness, and response.'],
             ].map(([title, text], i) => (
               <motion.div
                 key={i}
@@ -239,6 +240,37 @@ export default function Contact() {
           </div>
         </motion.div>
       </StickySection>
+
+      {/* ===== FINAL CALL TO ACTION ===== */}
+      <section className="relative snap-start h-[940px] overflow-hidden">
+        <div className="sticky top-16 h-[940px] w-full overflow-hidden">
+          <motion.img
+            src="/images/final-hero.jpg" // Save your chosen final image here
+            alt="Event operations background"
+            className="absolute inset-0 w-full h-full object-cover brightness-[0.4]"
+            style={{ y, opacity, willChange: 'transform, opacity' }}
+          />
+
+          <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
+            <motion.h2
+              className="font-heading font-bold text-4xl sm:text-5xl text-white mb-6"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+            >
+              Any Questions?
+            </motion.h2>
+            <motion.p
+              className="text-lg sm:text-xl text-gray-100 max-w-3xl mx-auto leading-relaxed"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 1 }}
+            >
+              Thank you for the opportunity to discuss my experience.
+            </motion.p>
+          </div>
+        </div>
+      </section>
     </motion.div>
   )
 }

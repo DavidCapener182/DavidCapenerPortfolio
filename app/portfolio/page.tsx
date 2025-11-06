@@ -49,29 +49,32 @@ export default function Portfolio() {
         <div className="sticky top-16 h-[940px] w-full overflow-hidden">
           <HeroBanner
             title="Case Studies & Project Highlights"
-            description="A curated selection of projects showcasing leadership in crowd management, operational strategy, and safety innovation — from high-profile festivals to public and educational environments."
+            description="A curated selection of projects showcasing leadership in crowd management, operational strategy, and safety innovation — from major festivals to public events and live broadcast environments."
             imageSrc="/images/portfolio-hero.jpg"
           />
         </div>
       </section>
 
       {/* ===== EUROVISION ===== */}
-      <StickySection bg="bg-white">
-        <CaseStudy
-          title="Eurovision 2023, Liverpool"
-          role="Venue Security Manager | M&S Bank Arena"
-          client="BBC / Venue Management"
-          duration="Four months planning, one month on-site"
-          description="In 2023 I led full venue security operations for the Eurovision Song Contest hosted at Liverpool’s M&S Bank Arena — one of the city’s most complex live broadcast events. Responsibilities included strategic risk planning, personnel coordination, and integrated emergency response management. I worked collaboratively with BBC production, venue management, and local authorities to deliver a safe and compliant guest experience across eight show days."
-          keyOutcomes={[
-            'Delivered eight live international broadcasts without incident',
-            'Achieved 100 % compliance with venue and broadcast security standards',
-            'Developed cross-agency contingency planning with emergency services',
-          ]}
-          imageSrc="/images/eurovision-arena.jpg"
-          imageAlt="Eurovision 2023 at M&S Bank Arena"
-        />
-      </StickySection>
+<StickySection bg="bg-white">
+  <CaseStudy
+    title="Eurovision 2023, Liverpool"
+    role="Venue Security Manager | M&S Bank Arena"
+    client="BBC / Venue Management"
+    duration="Four months planning, one month on-site"
+    description="In 2023, I led venue-wide security operations for the Eurovision Song Contest at Liverpool’s M&S Bank Arena — one of the city’s largest and most complex live broadcast events. My responsibilities included strategic planning, staff coordination, and integrated emergency response, ensuring a secure and seamless experience across all eight live show days. With delegations arriving from across Europe, I also managed the recruitment and coordination of bilingual staff, prepared multilingual briefing materials, and maintained a strong focus on international hospitality and communication to support delegates, visitors, and media teams from diverse linguistic and cultural backgrounds."
+    keyOutcomes={[
+      'Delivered eight live international broadcasts without incident',
+      'Maintained full compliance with broadcast and venue security standards',
+      'Enhanced cross-agency planning with emergency and production partners',
+      'Recruited and coordinated bilingual staff across operational teams',
+      'Prepared multilingual briefing materials to enhance staff readiness and visitor experience',
+      'Strengthened international hospitality and communication for delegates and guests',
+    ]}
+    imageSrc="/images/eurovision-arena.jpg"
+    imageAlt="Eurovision 2023 at M&S Bank Arena"
+  />
+</StickySection>
 
       {/* ===== LFC PARADE ===== */}
       <StickySection bg="bg-gray-50">
@@ -115,7 +118,7 @@ export default function Portfolio() {
           title="Rebellion Festival, Blackpool"
           role="Site Security Manager | Crisis Lead"
           client="Rebellion Festival Organisers"
-          description="During Rebellion Festival, riots involving over 1 000 people occurred in close proximity to the venue. With more than 10 000 attendees inside, I led lockdown procedures, protected attendees, and coordinated communications with police and emergency services."
+          description="During Rebellion Festival, an external disturbance involving over 1,000 people occurred close to the venue. With more than 10,000 attendees inside, I led the lockdown response, ensuring public safety, coordinating with police, and maintaining calm communication throughout the incident."
           keyOutcomes={[
             'Implemented emergency lockdown and communication plan',
             'Maintained operational calm and compliance under pressure',
@@ -131,7 +134,7 @@ export default function Portfolio() {
         <CaseStudy
           title="InCommand"
           role="Creator & Developer"
-          description="I designed and developed InCommand, an event-management platform integrating Martyn’s Law principles into a dynamic decision-support system. It uses AI to provide real-time risk analysis, scenario prompts, and continuous monitoring across venues."
+          description="I designed and developed InCommand, a bespoke event-management platform integrating Martyn’s Law principles into a dynamic decision-support tool. It leverages AI for live incident prompts, real-time risk analysis, and seamless integration with venue control systems."
           keyOutcomes={[
             'Real-time incident decision support',
             "Martyn’s Law compliance mapping and automated escalation prompts",
@@ -184,11 +187,11 @@ export default function Portfolio() {
               <motion.div key={i} variants={zoomIn.moderate}>
                 <Card className="overflow-hidden shadow-lg group cursor-pointer">
                   <div className="relative h-64 bg-gray-300 overflow-hidden">
-                    <img
-                      src={item.src}
-                      alt="Event gallery"
-                      className="w-full h-full object-cover"
-                    />
+                  <img
+  src={item.src}
+  alt="Event gallery"
+  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500"
+/>
                     <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <p className="text-white text-sm font-semibold text-center px-4">
                         {item.text}
@@ -218,11 +221,11 @@ export default function Portfolio() {
             Every project I undertake is built on one core principle: protecting people through preparation, precision and empathy.
           </p>
           <p className="text-base sm:text-lg mb-4 leading-relaxed">
-            My leadership is rooted in inclusion, respect and collaboration — ensuring that every team member, student or spectator feels safe, supported and confident in their environment.
-          </p>
-          <p className="text-base sm:text-lg leading-relaxed">
-            I combine operational foresight with practical experience to ensure that every event, no matter how complex, runs safely, efficiently and with integrity.
-          </p>
+  My leadership is built on respect, accountability, and teamwork — ensuring every colleague, contractor, and member of the public feels safe, supported, and confident in their surroundings.
+</p>
+<p className="text-base sm:text-lg leading-relaxed">
+  I combine operational foresight with real-world experience to ensure every event — no matter how complex — runs safely, efficiently, and with integrity.
+</p>
         </motion.div>
       </StickySection>
     </div>
