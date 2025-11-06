@@ -61,7 +61,7 @@ export default function HeroBanner({
           />
         </motion.div>
       ) : (
-        <div className="absolute inset-0 bg-gradient-to-br from-navy via-blue-900 to-gray-900">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1f3ba0] via-[#2f54d8] to-[#132a74]">
           {/* Animated background pattern */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0" style={{
@@ -70,13 +70,13 @@ export default function HeroBanner({
             }}></div>
           </div>
           {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0b1740]/80 via-transparent to-[#1f3ba0]/40"></div>
         </div>
       )}
 
       {/* Overlay */}
       {overlay && (
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0b1740]/70 via-[#1f2d6b]/40 to-[#081129]/70" />
       )}
 
       {/* Content */}

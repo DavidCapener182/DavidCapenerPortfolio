@@ -10,7 +10,7 @@ module.exports = {
   theme: {
   	extend: {
   		colors: {
-  			navy: '#1e3a8a',
+  			navy: '#1f3ba0',
   			red: '#dc2626',
   			lightgrey: '#f3f4f6',
   			border: 'hsl(var(--border))',

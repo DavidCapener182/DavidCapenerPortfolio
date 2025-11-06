@@ -151,7 +151,7 @@ Edit `tailwind.config.js` to change the color scheme:
 
 ```javascript
 colors: {
-  navy: '#1e3a8a',    // Primary navy blue
+  navy: '#1f3ba0',    // Primary navy blue
   red: '#dc2626',     // Accent red
   lightgrey: '#f3f4f6', // Light grey background
 }
