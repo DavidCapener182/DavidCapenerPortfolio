@@ -2,7 +2,7 @@
 
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { motion, useScroll } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { fadeUp, staggerContainer } from '@/lib/animationVariants'
 import { useRef, PropsWithChildren } from 'react'
 
@@ -31,6 +31,9 @@ export default function Experience() {
     offset: ['start start', 'end end'],
   })
 
+  // Hero parallax motion
+  const y = useTransform(pageScrollProgress, [0, 1], ['0%', '25%'])
+
   return (
     <div ref={containerRef} className="relative snap-y snap-mandatory">
       {/* ===== VERTICAL PROGRESS BAR ===== */}
@@ -41,24 +44,23 @@ export default function Experience() {
         />
       </div>
 
-      {/* ===== HERO HEADER ===== */}
-      <section className="relative snap-start h-[940px]">
+      {/* ===== HERO HEADER WITH PARALLAX ===== */}
+      <section className="relative snap-start h-[940px] overflow-hidden">
         <div className="sticky top-16 h-[940px] w-full overflow-hidden">
-          {/* Background image placeholder */}
-          <div className="absolute inset-0">
-            <img
-              src="/images/experience-hero.jpg" // 👈 replace this with your chosen hero image
-              alt="Professional experience background"
-              className="w-full h-full object-cover brightness-[0.45]"
-            />
-          </div>
+          {/* Background Image */}
+          <motion.img
+            src="/images/experience-hero.jpg"
+            alt="Professional experience background"
+            className="absolute inset-0 w-full h-full object-cover brightness-[0.45]"
+            style={{ y, willChange: 'transform' }}
+          />
 
-          {/* Overlay content */}
+          {/* Overlay Content */}
           <div className="relative z-10 flex flex-col justify-center items-center h-full text-center px-4 sm:px-6 lg:px-8">
             <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={fadeUp.moderate}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: 'easeOut' }}
             >
               <h1 className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl text-white mb-6">
                 Professional Experience
